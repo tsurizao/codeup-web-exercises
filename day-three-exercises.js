@@ -107,7 +107,7 @@ console.log(total);
 
 var googleRate = 400;
 var amazonRate = 380;
-var facebookRate 350;
+var facebookRate = 350;
 var googleHours = 6;
 var amazonHours = 4;
 var facebookHours = 10;
@@ -132,12 +132,12 @@ console.log(canEnroll);
 //than 2 items, and the offer has not expired.  Premium 
 //members do not need to buy a specific amount of products.
 
-var hasThreeOrMore; //set to true or false
-var isOfferExpired; //set to true or false
-var isPremium; //set to true or false
-console.log((hasAtleastThree === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false));
+var hasThreeOrMore = true; //set to true or false
+var isOfferExpired = false; //set to true or false
+var isPremium = false; //set to true or false
+console.log((hasThreeOrMore === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false));
 //or print from a single variable
-var canGetOffer = (hasAtleastThree === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false);
+var canGetOffer = (hasThreeOrMore === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false);
 console.log(canGetOffer);
 
 /*
@@ -154,16 +154,13 @@ var password = 'notastrongpassword'
 //following conditions:
 
 //-- the password must be at least 5 characters
-var isUsernameFiveOrMore = true;
-
 //-- the password must not include the username
-var isUsernameInPassword = false;
-
 //-- the username must be no more than 20 characters
-var isUsernameMoreThanTwenty = false;
-
 //-- neither the username or password can start or end with
 //whitespace
+
+var isUsernameFiveOrMore = true;
+var isUsernameInPassword = false;
+var isUsernameMoreThanTwenty = false;
 var isWhiteSpaceInUsername = false;
 var isWhiteSpaceInPassword = false;
-*/
