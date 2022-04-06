@@ -58,10 +58,10 @@ var sample = "Hello Codeup";
 -- Update the variable sample via concatenation soo that it 
 contains "Hello Codeup Students"
 -- Replace "Students" with "Class"
--- Find the index of "c" using .indexOf()  What do you observe?
+-- Find the index of "c" using .indexOf() What do you observe?
 -- Find the index of "C" using .indexOf()
 -- Retrieve a substring that contains only the word "Codeup" by
-using indexOf() and substring()
+using indexOf() and substring().
 */
 
 var sample = "Hello Codeup";
