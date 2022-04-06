@@ -48,7 +48,7 @@ NaN == NaN
 !!"0";
 
 /*
-2. Execute the following statements in Chromoe JavaScript
+2. Execute the following statements in Chrome JavaScript
 console and then follow the directions below.
 
 var sample = "Hello Codeup";
@@ -72,8 +72,10 @@ sample.replace("Students", "Class");
 sample.indexOf("c");
 sample.indexOf("C");
 sample.substring(sample.indexOf("C"), 12);
-// Also can use sample.indexOf("C") and sample.indexOf("p") to
-// find the indices for sample.substring(6, 12);
+// With less hardcoded numbers(readability/flexibility)
+var startingIndex = sample.indexOf("Codeup");
+var endingIndex = startingIndex + "Codeup".length;
+sample.substring(startingIndex, endingIndex);
 
 /*
 3. Write some JavaScript code, that is, variables and operators,
@@ -89,14 +91,19 @@ with code.
 //like it).  If the price for a movie per day is $3, how much
 //will you have to pay?
 
-var littleMermaid = 3;
-var brotherBear = 5;
-var hercules = 1;
-var pricePerDay = 3;
-console.log (pricePerDay * (littleMermaid + brotherBear + hercules));
-//or
-var total = pricePerDay * (littleMermaid + brotherBear + hercules);
-console.log(total);
+function totalCostOfMovieRentalsDollars (littleMermaidDaysRented, brotherBearDaysRented, herculesDaysRented){
+    var rentPricePerDayDollars = 3;
+    //console.log((littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented) * rentPricePerDayDollars;
+    return (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented) * rentPricePerDayDollars;
+}
+// var littleMermaidDaysRented = 3;
+// var brotherBearDaysRented = 5;
+// var herculesDaysRented = 1;
+// var rentPricePerDayDollars = 3;
+// console.log (rentPricePerDayDollars * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented));
+//  // or
+// var totalPriceDollars = rentPricePerDayDollars * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented);
+// console.log(totalPriceDollars);
 
 //Suppose you're working as a contractor for 3 companies: 
 //Google, Amazon and Facebook, they pay you a different rate
@@ -104,40 +111,51 @@ console.log(total);
 //How much will you receive in payment for this week?  You
 //worked 10 hours for Facebook, 6 hoours for Google and 4
 //hours for Amazon.
-
-var googleRate = 400;
-var amazonRate = 380;
-var facebookRate = 350;
-var googleHours = 6;
-var amazonHours = 4;
-var facebookHours = 10;
-console.log((googleRate * googleHours) + (amazonRate * amazonHours) + (facebookRate * facebookHours));
-//or print from a single variable
-var totalPay = (googleRate * googleHours) + (amazonRate * amazonHours) + (facebookRate * facebookHours);
-console.log(totalPay);
+function totalPayFromAllJobs (googleHoursWorked, amazonHoursWorked, facebookHoursWorked){
+    var googleHourlyPayRateDollars = 400;
+    var amazonHourlyPayRateDollars = 380;
+    var facebookHourlyPayRateDollars = 350;
+    return ((googleHourlyPayRateDollars * googleHoursWorked) + (amazonHourlyPayRateDollars * amazonHoursWorked) + (facebookHourlyPayRateDollars * facebookHoursWorked));
+}
+// var googleHourlyPayRateDollars = 400;
+// var amazonHourlyPayRateDollars = 380;
+// var facebookHourlyPayRateDollars = 350;
+// var googleHoursWorked = 6;
+// var amazonHoursWorked = 4;
+// var facebookHoursWorked = 10;
+// console.log((googleHourlyPayRateDollars * googleHoursWorked) + (amazonHourlyPayRateDollars * amazonHoursWorked) + (facebookHourlyPayRateDollars * facebookHoursWorked));
+// //or print from a single variable
+// var totalPayDollars = (googleHourlyPayRateDollars * googleHoursWorked) + (amazonHourlyPayRateDollars * amazonHoursWorked) + (facebookHourlyPayRateDollars * facebookHoursWorked);
+// console.log(totalPayDollars);
 
 //A student can be enrolled in a class only if the class is
 //not full and the class schedule does not conflict with her
 //current schedule.
 
-var isFull;
-var isConflict;
-console.log(isFull && isConflict);
-//or print from a single variable with reversed condition
-var canEnroll = (!isFull && !isConflict);
-console.log(canEnroll);
+function canEnrollForClass(isClassFull, isScheduleConflict){
+    return !isClassFull && !isScheduleConflict;
+}
+// var isClassFull;
+// var isScheduleConflict;
+// console.log(isClassFull && isScheduleConflict);
+// //or print from a single variable with reversed condition
+// var canEnrollForClass = (!isClassFull && !isScheduleConflict);
+// console.log(canEnrollForClass);
 
 
 //A product offer can be applied only if a person buys more
 //than 2 items, and the offer has not expired.  Premium 
 //members do not need to buy a specific amount of products.
 
-var hasThreeOrMore = true; //set to true or false
-var isOfferExpired = false; //set to true or false
-var isPremium = false; //set to true or false
-console.log((hasThreeOrMore === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false));
-//or print from a single variable
-var canGetOffer = (hasThreeOrMore === true && isOfferExpired === false) || (isPremium === true && isOfferExpired === false);
+// function doesProductOfferApply(hasThreeOrMoreItems, isOfferExpired, isPremiumMember){
+//     return (hasThreeOrMoreItems || isPremiumMember) && !isOfferExpired;
+// }
+var hasThreeOrMore; //set to true or false
+var isOfferExpired; //set to true or false
+var isPremiumMember; //set to true or false
+console.log((hasThreeOrMore || isPremiumMember) && !isOfferExpired);
+//or print from a value stored in variable
+var canGetOffer = (hasThreeOrMore || isPremiumMember) && !isOfferExpired;
 console.log(canGetOffer);
 
 /*
@@ -159,8 +177,13 @@ var password = 'notastrongpassword'
 //-- neither the username or password can start or end with
 //whitespace
 
-var isUsernameFiveOrMore = true;
-var isUsernameInPassword = false;
-var isUsernameMoreThanTwenty = false;
-var isWhiteSpaceInUsername = false;
-var isWhiteSpaceInPassword = false;
+var passwordMinLength = 5;
+var passwordHasMinLength = password.length >= passwordMinLength;
+var noUsernameInPassword = password.indexOf(username) === -1;
+var usernameMaxLength = 20;
+var usernameUnderMaxLength = username.length <= usernameMaxLength;
+
+var passwordIsTrim = password.trim() === password;
+var usernameIsTrim = username.trim() === username;
+var passwordAndUsernameIsTrim = passwordIsTrim && usernameIsTrim;
+var passwordAndUsernameIsValid = passwordHasMinLength && noUsernameInPassword && usernameUnderMaxLength && passwordAndUsernameIsTrim;
