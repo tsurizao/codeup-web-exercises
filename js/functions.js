@@ -108,7 +108,7 @@ alert("Your tip amount should be " + calculateTip(percentageToTip, totalOfBill))
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
  function applyDiscount (price, discountPercentage){
-     if (discountPercentage > 1 || discountPercentage < 0){
+     if (discountPercentage < 0 || discountPercentage > 1){
          return -1;
      } else {
          return price * discountPercentage;
