@@ -1,13 +1,15 @@
+"use strict";
+
 console.log("Hello from external JavaScript");
 
-//Introductory Questions
+// Introductory Questions
 alert("Welcome to my Website!");
 var userFavoriteColor = prompt("What is your favorite color?");
 alert("Really?! My favorite color is " + userFavoriteColor + " too!");
 
 // Problem 1
 alert("Now onto some questions...");
-alert("You rented some movies for your kids: The Little Mermaid, Brother Bear and Hercules.  Additionally there is a $3.00 fee per day per movie.");
+alert("You rented some movies for your kids: The Little Mermaid, Brother Bear and Hercules.");
 var littleMermaidDaysRented = parseFloat(prompt("How many days did you rent 'The Little Mermaid'?"));
 var brotherBearDaysRented = parseFloat(prompt("How many days did you rent 'Brother Bear'?"));
 var herculesDaysRented = parseFloat(prompt("How many days did you rent 'Hercules'?"));
@@ -27,9 +29,9 @@ var facebookHoursWorked = prompt("How many hours did you work for Facebook this 
 var totalPayForAllWork = ((googleHourlyPayRateDollars * googleHoursWorked) + (amazonHourlyPayRateDollars * amazonHoursWorked) + (facebookHourlyPayRateDollars * facebookHoursWorked));
 alert("You made $" + totalPayForAllWork + " this week!");
 
-//Problem 3
+// Problem 3
 alert("Problem numero 3:");
-alert("You're can enroll in a class only if the class is not full and the class schedule does not conflict with your schedule.");
+alert("You can enroll in a class only if the class is not full and the class schedule does not conflict with your schedule.");
 var isClassFull = confirm("Is the class full? (Cancel - No | Ok - Yes)");
 var isScheduleConflict = confirm("Does the class schedule conflict with your personal schedule? (Cancel - No | Ok - Yes)");
 var canYouEnroll = (!isClassFull && !isScheduleConflict); // Reverses and stores values for readability
@@ -39,11 +41,15 @@ if (canYouEnroll){
     alert("Sorry, you're unable to enroll, but we'll be here when you're ready.");
 }
 
-//Problem 4
+// Problem 4
 alert("Final Problem");
 alert("A product offer can be applied only if a person buys more than 2 items, and the offer has not expired.  Premium members do not need to buy a specific amount of products.");
 var hasMoreThanTwoItems = confirm("Did you buy at least 3 items? (Cancel - No | Ok - Yes)");
-var isOfferExpired = confirm("Is the offer still valid? (Cancel - No | Ok - Yes)");
+var isOfferValid = confirm("Is the offer still valid? (Cancel - No | Ok - Yes)");
 var isPremiumMember = confirm("Are you a premium member? (Cancel - No | Ok - Yes)");
-var canReceiveOffer = (hasMoreThanTwoItems || isPremiumMember) && !isOfferExpired;
-alert("Congratulations!  You are eligible for the promotional offer!");
+var canReceiveOffer = (hasMoreThanTwoItems || isPremiumMember) && isOfferValid;
+if(canReceiveOffer){
+    alert("Congratulations!  You are eligible for the promotional offer!");
+} else {
+    alert("Sorry this promotional offer isn't available to you.");
+}
