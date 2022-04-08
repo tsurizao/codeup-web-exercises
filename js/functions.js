@@ -109,10 +109,6 @@
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
     function applyDiscount(price, discountPercentage) {
-        if (discountPercentage < 0 || discountPercentage > 1) {
-            return -1;
-        } else {
-            return price * discountPercentage;
-        }
+        return price - (price * discountPercentage);
     }
 })();
