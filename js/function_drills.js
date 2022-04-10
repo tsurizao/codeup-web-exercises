@@ -98,40 +98,165 @@
 
 // Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
     function hasLowerCase(string){
-
+        return string !== string.toUpperCase();
     }
 
 // Make a function named isSpace(letter) that returns if a character is a space character
+    function isSpace(letter){
+        return letter === " ";
+    }
+
 // Make a function named isZero(number)
+    function isZero(number){
+        return number === 0;
+    }
+
 // Make a function named notZero(input) that returns true if the input is not zero
+    function notZero(input){
+        return input !== 0;
+    }
+
 // Write a function named lowerCase(string)
+    function lowerCase(string){
+        return string === string.toLowerCase();
+    }
+
 // Write a function named double(n) that returns a number times two
+    function double(n){
+        return n * 2;
+    }
+
 // Write a function named triple(n) that returns a number times 3
+    function triple(n){
+        return n * 3;
+    }
+
 // Write a function named quadruple(n) that returns a number times 4
+    function quadruple(n){
+        return n * 4;
+    }
+
 // Write a function named half(n) that returns 1/2 of the provided input
+    function half(n){
+        return n / 2;
+    }
+
 // Write a function named subtract(a, b) that returns a minus b
+    function subtract(a,b){
+        return a - b;
+    }
+
 // Write a function named multiply(a, b) that returns the product of a times b
+    function multiply(a, b){
+        return a * b;
+    }
+
 // Write a function named divide(a, b) that returns a divided by b
+    function divive(a, b){
+        return a / b;
+    }
+
 // Write a function named remainder(a, b) that returns the remainder after dividing a by b
-// Make a function named modulo(a, b) that returns the returns the remainder after dividing a by b
+    function remainder(a, b){
+        return a % b;
+    }
+
+// Make a function named modulo(a, b) that returns the remainder after dividing a by b
+    function modulo(a, b){
+        return a % b;
+    }
+
 // Write a function named cube(n) that returns n * n * n
+    function cube(n){
+        return n * n * n;
+    }
+
 // Write a function named squareRoot(n) that returns the square root of the input
+    function squareRoot(n){
+        return Math.sqrt(n);
+    }
+
 // Write a function named cubeRoot(n) that returns the cube root of the input
-// Write a function named invertSign(number) that returns a negative version of a postive number, a positve version of negative, and false for all else.
+    function cubeRoot(n){
+        return Math.cbrt(n);
+    }
+// Write a function named invertSign(number) that returns a negative version of a positive number, a positive version of negative, and false for all else.
+    function invertSign(number) {
+        return number === 0 ? false : number * -1;
+    }
+
 // Write a function named degreesToRadians(number)
+    function degreesToRadians(number){
+        return number * (Math.PI / 180);
+    }
+
 // Write a function named radiansToDegrees(number)
+    function radiansToDegrees(number){
+        return number * (180 / Math.PI)
+    }
+
 // Make a function named isBlank(input) that determines if a given input is spaces, newline characters, or tabs.
-//     Make a function named trim(string) that removes empty spaces before and after the input.
-//     Make a function named areEqual(input1, input2) that returns if both inputs have the same value
+    function isBlank(input){
+        return input.trim() === '';
+    }
+
+// Make a function named trim(string) that removes empty spaces before and after the input.
+    function trim(string){
+        return string.trim();
+    }
+
+// Make a function named areEqual(input1, input2) that returns if both inputs have the same value
+    function areEqual(input1, input2){
+        return input1 == input2;
+    }
+
 // Make a function named areIdentical(input1, input2) that returns if both inputs are same value and data type.
-//     Make a function named not(input) returns the input with a flipped boolean
+    function areIdentical(input1, input2){
+        return input1 === input2;
+    }
+
+// Make a function named not(input) returns the input with a flipped boolean
+    function not(input){
+        return !input;
+    }
+
 // Make a function named notNot(input) that the negation of the negation of the input.
-//     Make a function named and(predicate1, predicate2) that returns the logical operation of AND
+    function notNot(input){
+        return !!input;
+    }
+
+// Make a function named and(predicate1, predicate2) that returns the logical operation of AND
+    function and(predicate1, predicate2){
+        return predicate1 && predicate2;
+    }
+
 // Make a function named or(predicate1, predicate2) that returns the logical operation of OR
+    function or(predicate1, predicate2){
+        return predicate1 || predicate2;
+    }
+
 // Write a function called reverseString(string) that reverses a string
+    function reverseString(string){
+        return string.split("").reverse().join("");
+    }
+
 // Make a function named absoluteValue(number) that returns the absolute value of a number.
-//     Make a function named rollDice(sides) that takes in an argument containing the number of sides the die should have. Generate a random number between 1 up to and including the number of sides.
-//     Simple Function Drills
+    function absoluteValue(number){
+        // if (number >= 0) {
+        //     return number;
+        // } else {
+        //     return number * -1;
+        // }
+        return Math.abs(number);
+    }
+// Make a function named rollDice(sides) that takes in an argument containing the number of sides the die should have. Generate a random number between 1 up to and including the number of sides.
+    function rollDice(sides){
+        return Math.floor(Math.random() * sides) + 1;
+    }
+
+// ################################################################
+
+// Simple Function Drills
 // Make a function called returnTwo() that returns the number 2 when called
 // Test this function with console.log(returnTwo())
 //
@@ -155,6 +280,9 @@
 // Write a function called identity(input) that takes in an argument called input and returns that input.
 //
 //     Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call.
+    function getRandomNumber(min, max){
+        return Math.floor((Math.random() * (max-min) + min));
+    }
 //
 // Write a function called first(input) that returns the first character in the provided string.
 //
