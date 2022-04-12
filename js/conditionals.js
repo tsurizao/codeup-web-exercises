@@ -145,7 +145,10 @@
     var luckyNumber = Math.floor(Math.random() * 6);
     var customerTotalBill = (prompt("You bought stuff at Walmart, how much was your total bill?"));
     var discountedPrice = calculateTotal(luckyNumber, customerTotalBill);
-    alert("You lucky number was " + luckyNumber + ". Your total bill was $" + customerTotalBill + ".  Your new bill amount, after discount, is $" + discountedPrice + "!");
+    alert("Your lucky number was " + luckyNumber + ". Your total bill was $" + customerTotalBill + ".  Your new bill amount, after discount, is $" + discountedPrice + "!");
+    // alert("Your lucky number is " + luckyNumber);
+    // alert("Your total bill was $" + customerTotalBill);
+    // alert("Your new total amount after discount is $" + discountedPrice);
 
     /**
      * TODO:
@@ -166,16 +169,25 @@
      * HINT: The way we prompt for a value could be improved
      */
 
+    function isEvenNumber(number){
+        if(number === 0){
+            alert(number + " isn't even or odd.")
+        } else (number % 2 === 0) ? alert(number + " is an even number.") : alert(number + " is an odd number.");
+    }
+    function isPositiveNumber(number){
+        if(number === 0){
+            alert(number + " isn't positive or negative")
+        } else (number > 0) ? alert(number + " is a positive number.") : alert(number + " is a negative number");
+    }
+    function numberPlusOneHundred(number){
+        alert((number + 100) + " is the value of " + number + " plus 100.")
+    }
     var isConfirmed = confirm("Would you like to enter a number?");
     if (isConfirmed) {
         var capturedNumber = parseFloat(prompt("Enter a digit. (Please use number keys)"));
-        if (capturedNumber != 0) {
-            capturedNumber % 2 === 0 ? alert(capturedNumber + " is an even number.") : alert(capturedNumber + " is an odd number.");
-            alert(capturedNumber + " plus 100 = " + (capturedNumber + 100));
-            capturedNumber < 0 ? alert(capturedNumber + " is a negative number.") : alert(capturedNumber + " is an positive number.");
-        } else {
-            alert(capturedNumber + " isn't even or odd. " + capturedNumber + " plus 100 is equal to " + (100 + capturedNumber) + " isn't negative or positive.");
-        }
+        isEvenNumber(capturedNumber);
+        isPositiveNumber(capturedNumber);
+        numberPlusOneHundred(capturedNumber);
     } else {
         alert("Incorrect input data entered.");
     }
