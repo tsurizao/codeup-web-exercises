@@ -24,12 +24,9 @@
     generate 10 random numbers between 20 and 200 and output to
     the console whether each number is odd or even.
      */
-    function tenRandomNumbers(){
-        var count = 0;
-        for(var i = 0; count < 10;count ++) {
-            var tempRandomNumber = Math.floor((Math.random() * 180) + 20);
-            tempRandomNumber % 2 === 0 ? console.log(tempRandomNumber + " is even") : console.log(tempRandomNumber + " is odd")
-        }
+    for(var i = 0; i < 10;i++) {
+        var tempRandomNumber = Math.floor((Math.random() * 180) + 20);
+        tempRandomNumber % 2 === 0 ? console.log(tempRandomNumber + " is even") : console.log(tempRandomNumber + " is odd")
     }
 
     /*
@@ -46,15 +43,13 @@
     88888888
     999999999
      */
-    function numberAvalanche(){
-        for(var i = 1;i <= 9;i++){
-            var numberPrinted = "";
-            for(var j = 0; j < i;j++){
-                numberPrinted += i.toString();
-            }
-            //console.log(parseFloat(numberPrinted))
-            console.log(numberPrinted);
+    for(var i = 1;i <= 9;i++) {
+        var numberPrinted = "";
+        for (var j = 0; j < i; j++) {
+            numberPrinted += i.toString();
         }
+        //console.log(parseFloat(numberPrinted))
+        console.log(numberPrinted);
     }
 
     /*
@@ -82,10 +77,9 @@
     10
     5
      */
-    function HundredToFiveByFives(){
-        var startingNumber = 100;
-        for(var i = 0;i < 100;i += 5){
-            console.log(startingNumber - i);
-        }
+    var startingNumber = 100;
+    for(var i = 0;i < 100;i += 5){
+        console.log(startingNumber - i);
     }
+
 }());
