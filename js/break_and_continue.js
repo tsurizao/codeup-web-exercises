@@ -13,7 +13,7 @@
      */
     var userRecordedInput = prompt("Enter an odd number between 1 and 50");
     while(true){
-        if(userRecordedInput % 2 === 0 || userRecordedInput < 1 || userRecordedInput > 49){
+        if(userRecordedInput % 2 === 0 || userRecordedInput < 1 || userRecordedInput > 50){
             alert("Invalid input.");
             userRecordedInput = prompt("Enter an odd number between 1 and 50");
         } else {

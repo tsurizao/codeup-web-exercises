@@ -46,9 +46,8 @@
     for(var i = 1;i <= 9;i++) {
         var numberPrinted = "";
         for (var j = 0; j < i; j++) {
-            numberPrinted += i.toString();
+            numberPrinted += i;
         }
-        //console.log(parseFloat(numberPrinted))
         console.log(numberPrinted);
     }
 

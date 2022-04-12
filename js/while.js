@@ -26,10 +26,10 @@
     32768
     65536
      */
-    var binaryValues = 2;
-    while(binaryValues < 65536){
-        console.log(binaryValues);
-        binaryValues *= 2;
+    var myVar = 2;
+    while(myVar < 65536){
+        console.log(myVar);
+        myVar *= 2;
     }
 
     /*
@@ -47,7 +47,7 @@
      */
     var allCones = Math.floor(Math.random() * 50) + 50;
     do {
-        var randomConesSold = Math.floor(Math.random()*5 + 1)
+        var randomConesSold = Math.floor(Math.random()*5 + 1);
         if (allCones - randomConesSold >= 0){
             allCones -= randomConesSold;
             console.log("Sold " + randomConesSold + "!  I have " + allCones + " left!");

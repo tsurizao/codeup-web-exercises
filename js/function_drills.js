@@ -305,7 +305,7 @@ console.log(returnName());
 
 // Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call.
     function getRandomNumber(min, max){
-        return Math.floor((Math.random() * (max-min) + min));
+        return Math.floor((Math.random() * (max-min + 1) + min));
     }
 
 // Write a function called first(input) that returns the first character in the provided string.
