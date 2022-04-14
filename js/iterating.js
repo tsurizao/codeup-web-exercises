@@ -55,15 +55,15 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    function firstArrayElement(array){
+    function first(array){
         return array[0];
     }
 
-    function secondArrayElement(array){
+    function second(array){
         return array[1];
     }
 
-    function lastArrayElement(array) {
+    function last(array) {
         return array[array.length-1]
     }
 
