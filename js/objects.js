@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -11,6 +11,12 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+    var person = {
+        firstName: 'Chase',
+        lastName: 'Martinez',
+    }
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     /**
      * TODO:
@@ -21,6 +27,10 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    person.sayHello = function sayHello() {
+        return 'Hello from ' + this.firstName + " " + this.lastName;
+    }
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,11 +46,23 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+    shoppers.forEach(function (shopper) {
+        console.log("Customer Name: " + shopper.name);
+        console.log("Amount: $" + shopper.amount);
+        if (shopper.amount >= 200) {
+            console.log("Applying a 12% discount");
+            shopper.amount = (shopper.amount - shopper.amount * .12);
+            console.log("Amount: $" + shopper.amount);
+        } else {
+            console.log("Unable to apply discount")
+            console.log("Amount: $" + shopper.amount);
+        }
+    });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +76,43 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    var books = [
+        {
+            title: 'Going After Cacciato',
+            author: {
+                firstName: 'Tim',
+                lastName: "O'Brien",
+            }
+        },
+        {
+            title: 'Eragon',
+            author: {
+                firstName: 'Christopher',
+                lastName: 'Paolini',
+            }
+        },
+        {
+            title: 'A Song of Ice and Fire',
+            author: {
+                firstName: 'George R R',
+                lastName: 'Martin',
+            }
+        },
+        {
+            title: 'Metro 2033',
+            author: {
+                firstName: 'Dmitry',
+                lastName: 'Glukhovsky'
+            }
+        },
+        {
+            title: 'Lord of the Rings',
+            author: {
+                firstName: 'J R R',
+                lastName: 'Tolkien',
+            }
+        }
+    ];
 
     /**
      * TODO:
@@ -79,6 +138,9 @@
      *      ---
      *      ...
      */
+    books.forEach(function (book) {
+        showBookInfo(book);
+    });
 
     /**
      * Bonus:
@@ -91,4 +153,22 @@
      *   `showBookInfo` function.
      */
 
-})();
+    function createBook(title, authorFirstName, authorLastName) {
+        var moreBooks = {
+            title: title,
+            author: {
+                firstName: authorFirstName,
+                lastName: authorLastName,
+            }
+        }
+        books.push(moreBooks);
+        return moreBooks;
+    }
+
+    function showBookInfo(book) {
+        console.log("Book # " + (books.indexOf(book) + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log('---');
+    }
+}());
