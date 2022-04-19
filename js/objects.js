@@ -154,15 +154,15 @@
      */
 
     function createBook(title, authorFirstName, authorLastName) {
-        var moreBooks = {
+        var newBook = {
             title: title,
             author: {
                 firstName: authorFirstName,
                 lastName: authorLastName,
             }
         }
-        books.push(moreBooks);
-        return moreBooks;
+        books.push(newBook);
+        return newBook;
     }
 
     function showBookInfo(book) {
