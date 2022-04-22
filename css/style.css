@@ -4,7 +4,8 @@ line
 comment
 */
 body {
-    background-color: #000000;
+    background-image: url("/img/carbon_fibre.webp");
+    font-family: Akshar, sans-serif;
 }
 h1 {
     text-align: center;
@@ -18,12 +19,40 @@ h2, h3, h4, h5, h6 {
     color: lightgray;
     text-decoration: underline;
 }
+#our-product{
+    padding-left: 80px;
+}
 table {
     color: #d38f6e;
 }
-ul, ol {
-    color: #d38f6e
+th {
+    text-decoration: underline;
 }
-a {
-
+tr {
+    padding: 10px;
+}
+td {
+    padding: 10px;
+}
+ul, ol {
+    color: #d38f6e;
+    list-style: circle;
+}
+.text-center {
+    text-align: center;
+}
+p {
+    color: lightgray;
+}
+a:link {
+    color: lightgreen;
+}
+a:visited {
+    color: aqua;
+}
+a:hover {
+    color: cadetblue;
+}
+a:active {
+    color: azure;
 }
