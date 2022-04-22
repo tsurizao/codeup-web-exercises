@@ -36,10 +36,46 @@
 
     function returnEveryOtherElement(array) {
         var newArray = [];
-        for (var i = 0; i < array.length; i+=2) {
+        for (var i = 0; i < array.length; i += 2) {
             newArray.push(array[i]);
         }
         return newArray;
+    }
+
+    //  Write a function that accepts the array of trail objects above,
+    //  and returns the total distance of non-paved trails.
+
+    var trails = [
+        {
+            name: "Salado Creek Greenway",
+            distanceInMiles: 20,
+            isPaved: true
+        },
+        {
+            name: "Leon Creek Greenway",
+            distanceInMiles: 20.1,
+            isPaved: true
+        },
+        {
+            name: "McAllister Park: Blue Loop",
+            distanceInMiles: 6.3,
+            isPaved: false
+        },
+        {
+            name: "Phil Hardberger Park: Geology Trail",
+            distanceInMiles: 0.8,
+            isPaved: false
+        }
+    ]
+
+    function trailDistance(trailsArray) {
+        var totalDistance = 0;
+        trailsArray.forEach(function (trail) {
+            if (trail.isPaved === false) {
+                totalDistance += trail.distanceInMiles;
+            }
+        })
+        return totalDistance;
     }
 
 </script>
