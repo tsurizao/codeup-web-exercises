@@ -3,7 +3,27 @@ multi
 line
 comment
 */
-.fancy-header {
-    color: purple;
+body {
+    background-color: #000000;
+}
+h1 {
+    text-align: center;
+    color: lightgray;
+}
+h2, h3, h4, h5, h6 {
+    color: lightgray;
     text-decoration: underline;
+}
+.fancy-header {
+    color: lightgray;
+    text-decoration: underline;
+}
+table {
+    color: #d38f6e;
+}
+ul, ol {
+    color: #d38f6e
+}
+a {
+
 }
