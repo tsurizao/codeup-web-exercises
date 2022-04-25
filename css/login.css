@@ -11,6 +11,7 @@ body, html {
 }
 
 form {
+    margin: 1em;
     padding: 1em;
     /* This form should be separated from other elements by 1em */
     /* There must be 1em between the content and the border of this element */
@@ -56,7 +57,7 @@ fieldset {
 .btn {
     padding: 8px;
     color: #ffffff;
-    border: 2px solid #595959;
+    border: 1px solid lightgray;
     font-weight: bold;
     /* There must be a separation of 8px between the text and the border of this element */
     /* The text color of this element should be white and bold */
