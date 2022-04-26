@@ -67,7 +67,8 @@ a {
     float: left;
     width: calc(25% - .5em);
 }
-.profile-entry{
+
+.profile-entry {
     margin: .5em;
 }
 
@@ -75,7 +76,8 @@ a {
     position: absolute;
     top: 250px;
 }
-.profile-items{
+
+.profile-items {
     list-style: none;
     padding: 0;
 }
