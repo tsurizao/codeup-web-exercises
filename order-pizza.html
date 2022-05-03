@@ -17,7 +17,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="container d-flex navbar-nav me-auto mb-2 mb-lg-0 d-flex">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Order Online</a>
                 </li>
@@ -32,85 +32,89 @@
                         </button>
                     </form>
                 </li>
+                <li class="profile-move">
+                    <img src="/img/person-circle.svg" class="person-circle" alt="avatar">
+                    <button class="btn text-nowrap" type="submit">Sign Up!</button>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="container jumbotron d-flex align-items-center">
-    <div class="bg-light bg-success text-dark bg-opacity-50 w-100 p-1">
-        <div class="d-flex justify-content-center">
-            <h2>Welcome to Pizza World!</h2>
-        </div>
-    </div>
+<div class="container jumbotron d-none d-sm-block py-5 px-0 d-flex">
+    <h1 class="display-3 position-relative top-50 start-50 translate-middle text-center bg-light bg-opacity-75 w-100">
+        Welcome to Pizza World!</h1>
 </div>
-<h2>Build your own pizza!</h2>
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">
-            <span class="badge bg-secondary rounded-circle">1</span>
-            Size and Crust
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span class="badge bg-secondary rounded-circle">2</span>
-            Cheese and Sauce
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <span class="badge bg-secondary rounded-circle">3</span>
-            Toppings
-        </a>
-    </li>
-</ul>
-<div class="card" style="width: 100%">
-    <div class="p-1 border rounded-top" style="color: white; background-color: #007ecc">Choose Size and Crust</div>
-    <div class="card-header">
-        <ul class="list-group list-group-flush border rounded">
-            <li class="list-group-item" style="background-color: lightgrey">Hand Tossed
-            </li>
-            <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.
-            </li>
-            <li class="list-group-item">
-                <input id="hts" name="crust" value="hand-toss-small" type="radio">
-                <label
-                        for="hts">Small (10")
-                </label>
-            </li>
-            <li class="list-group-item">
-                <input id="htm" name="crust" value="hand-toss-medium" type="radio">
-                <label
-                        for="htm">Medium (10")
-                </label>
-            </li>
-        </ul>
-    </div>
-    <div class="card-header">
-        <ul class="list-group list-group-flush border rounded">
-            <li class="list-group-item" style="background-color: lightgrey">Crispy Thin
-            </li>
-            <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.
-            </li>
-            <li class="list-group-item">
-                <input id="tnm" name="crust" value="thin-medium" type="radio">
-                <label for="tnm">Medium (12")
-                </label>
-            </li>
-            <li class="list-group-item">
-                <input id="tnl" name="crust" value="thin-large" type="radio">
-                <label for="tnl">Large (14")
-                </label>
-            </li>
-        </ul>
-    </div>
+<div class="nav">
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs nav-move">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+                <span class="badge bg-secondary rounded-circle">1</span>
+                Size and Crust
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="badge bg-secondary rounded-circle">2</span>
+                Cheese and Sauce
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <span class="badge bg-secondary rounded-circle">3</span>
+                Toppings
+            </a>
+        </li>
+    </ul>
     <div class="card" style="width: 100%">
-        <div class="p-1 d-flex justify-content-end" style="color: white; background-color: lightgray">
-            <button type="button" class="btn btn-primary"
-                    style="background-color: #007ECC; text-decoration-color: white"><a style="text-decoration: none" href="order-pizza-2.html">Next Step ></a>
-            </button>
-            <!--            <button type="button" class="btn btn-primary" style="background-color: #007ECC; text-decoration-color: white">< Previous</button>-->
-            <!--            <button type="button" class="btn btn-primary" style="background-color: #007ECC; text-decoration-color: white">Next ></button>-->
+        <div class="p-1 border rounded-top" style="color: white; background-color: #007ecc">Choose Size and Crust</div>
+        <div class="card-header">
+            <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item" style="background-color: lightgrey">Hand Tossed
+                </li>
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.
+                </li>
+                <li class="list-group-item">
+                    <input id="hts" name="crust" value="hand-toss-small" type="radio">
+                    <label
+                            for="hts">Small (10")
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input id="htm" name="crust" value="hand-toss-medium" type="radio">
+                    <label for="htm">Medium (10")
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="card-header">
+            <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item" style="background-color: lightgrey">Crispy Thin
+                </li>
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.
+                </li>
+                <li class="list-group-item">
+                    <input id="tnm" name="crust" value="thin-medium" type="radio">
+                    <label for="tnm">Medium (12")
+                    </label>
+                </li>
+                <li class="list-group-item">
+                    <input id="tnl" name="crust" value="thin-large" type="radio">
+                    <label for="tnl">Large (14")
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="card" style="width: 100%">
+            <div class="p-1 d-flex justify-content-end" style="color: white; background-color: lightgray">
+                <button type="button" class="btn btn-primary"
+                        style="background-color: #007ECC; text-decoration: none;text-decoration-color: white"><a
+                        href="order-pizza-2.html">Next Step >
+                </a>
+                </button>
+                <!--            <button type="button" class="btn btn-primary" style="background-color: #007ECC; text-decoration-color: white">< Previous</button>-->
+                <!--            <button type="button" class="btn btn-primary" style="background-color: #007ECC; text-decoration-color: white">Next ></button>-->
+            </div>
         </div>
     </div>
 </div>

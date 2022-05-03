@@ -2,20 +2,38 @@
     background-image: url("/img/pizza.png");
     height: 346px;
     background-size: cover;
+    width: 80%;
 }
-a:link {
-    text-decoration: none;
-    color:white;
+
+.nav {
+    width: 80%;
+    margin: auto;
 }
-a:visited {
-    text-decoration: none;
-    color:white;
+
+.nav-move {
+    width: 100%;
 }
-a:hover {
-    text-decoration: none;
-    color:white;
+
+ul .profile-move {
+    margin-inline-start: auto;
 }
-a:active {
+
+button > a:link {
     text-decoration: none;
-    color:white;
+    color: white;
+}
+
+button > a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+button > a:hover .ancbut {
+    text-decoration: none;
+    color: white;
+}
+
+button > a:active .ancbut {
+    text-decoration: none;
+    color: white;
 }
