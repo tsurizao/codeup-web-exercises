@@ -12,12 +12,12 @@
 <script>
     (function () {
         "use strict";
-
         let detonationTimer = 5;
         // TODO: This function needs to be called once every second
         let timer = setInterval(function updateTimer() {
-            if (detonationTimer == 0) {
-                location.assign('/img/bomb.gif');
+            if (detonationTimer === 0) {
+                // alert("EXTERMINATE!");
+                location.assign('/img/boom.gif');
                 document.body.innerHTML = '';
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
