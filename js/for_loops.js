@@ -1,4 +1,4 @@
-(function(){
+(function () {
     /*
      Exercise 1:
      Create a file named for_loops.js inside the js directory and
@@ -12,8 +12,8 @@
      a number and console.logs the multiplication table for that
      number (just multiply by the numbers 1 through 10).
     */
-    function showMultiplicationTable(number){
-        for(var i = 1;i <= 10;i++){
+    function showMultiplicationTable(number) {
+        for (let i = 1; i <= 10; i++) {
             console.log(number + " x " + i + " = " + (number * i));
         }
     }
@@ -24,8 +24,8 @@
     generate 10 random numbers between 20 and 200 and output to
     the console whether each number is odd or even.
      */
-    for(var i = 0; i < 10;i++) {
-        var tempRandomNumber = Math.floor((Math.random() * 180) + 20);
+    for (let i = 0; i < 10; i++) {
+        let tempRandomNumber = Math.floor((Math.random() * 180) + 20);
         tempRandomNumber % 2 === 0 ? console.log(tempRandomNumber + " is even") : console.log(tempRandomNumber + " is odd")
     }
 
@@ -43,9 +43,9 @@
     88888888
     999999999
      */
-    for(var i = 1;i <= 9;i++) {
-        var numberPrinted = "";
-        for (var j = 0; j < i; j++) {
+    for (let i = 1; i <= 9; i++) {
+        let numberPrinted = "";
+        for (let j = 0; j < i; j++) {
             numberPrinted += i;
         }
         console.log(numberPrinted);
@@ -76,8 +76,8 @@
     10
     5
      */
-    var startingNumber = 100;
-    for(var i = 0;i < 100;i += 5){
+    let startingNumber = 100;
+    for (let i = 0; i < 100; i += 5) {
         console.log(startingNumber - i);
     }
 

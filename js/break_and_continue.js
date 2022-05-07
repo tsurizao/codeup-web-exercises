@@ -11,7 +11,7 @@
     and a break statement to continue prompting the user if they
     enter invalid input.
      */
-    var userRecordedInput = prompt("Enter an odd number between 1 and 50");
+    let userRecordedInput = prompt("Enter an odd number between 1 and 50");
     while(true){
         if(userRecordedInput % 2 === 0 || userRecordedInput < 1 || userRecordedInput > 50){
             alert("Invalid input.");
@@ -28,7 +28,7 @@
      entered.
      */
     console.log("Number to skip is: " + userRecordedInput);
-    for(var i = 1; i < 50;i++){
+    for(let i = 1; i < 50;i++){
         if (i === parseFloat(userRecordedInput)){
             console.log("Yikes! Skipping number: " + userRecordedInput)
             continue;

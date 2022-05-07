@@ -4,19 +4,19 @@ and predict what the result of evaluating it would be, then
 execute the statements(s) in Chrome console.
 */
 
-var a = 1;
-var b = a++;
-var c = ++a;
+let a = 1;
+let b = a++;
+let c = ++a;
 a + b + c;
-var d = "hello";
-var e = false;
+let d = "hello";
+let e = false;
 d++;
 e++;
-var perplexed;
+let perplexed;
 perplexed + 2;
-var price = 2.7;
+let price = 2.7;
 price.toFixed(2);
-var price = "2.7";
+let price = "2.7";
 price.toFixed(2);
 isNaN(0);
 isNaN(1);
@@ -64,7 +64,7 @@ contains "Hello Codeup Students"
 using indexOf() and substring().
 */
 
-var sample = "Hello Codeup";
+let sample = "Hello Codeup";
 sample.length;
 sample.toUpperCase();
 sample += " Students";
@@ -73,8 +73,8 @@ sample.indexOf("c");
 sample.indexOf("C");
 sample.substring(sample.indexOf("C"), 12);
 // With less hardcoded numbers(readability/flexibility)
-var startingIndex = sample.indexOf("Codeup");
-var endingIndex = startingIndex + "Codeup".length;
+let startingIndex = sample.indexOf("Codeup");
+let endingIndex = startingIndex + "Codeup".length;
 sample.substring(startingIndex, endingIndex);
 
 /*
@@ -91,11 +91,12 @@ with code.
 //like it).  If the price for a movie per day is $3, how much
 //will you have to pay?
 
-function totalCostOfMovieRentalsDollars (littleMermaidDaysRented, brotherBearDaysRented, herculesDaysRented){
-    var rentPricePerDayDollars = 3;
+function totalCostOfMovieRentalsDollars(littleMermaidDaysRented, brotherBearDaysRented, herculesDaysRented) {
+    let rentPricePerDayDollars = 3;
     //console.log((littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented) * rentPricePerDayDollars;
     return (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented) * rentPricePerDayDollars;
 }
+
 // var littleMermaidDaysRented = 3;
 // var brotherBearDaysRented = 5;
 // var herculesDaysRented = 1;
@@ -111,12 +112,13 @@ function totalCostOfMovieRentalsDollars (littleMermaidDaysRented, brotherBearDay
 //How much will you receive in payment for this week?  You
 //worked 10 hours for Facebook, 6 hoours for Google and 4
 //hours for Amazon.
-function totalPayFromAllJobs (googleHoursWorked, amazonHoursWorked, facebookHoursWorked){
-    var googleHourlyPayRateDollars = 400;
-    var amazonHourlyPayRateDollars = 380;
-    var facebookHourlyPayRateDollars = 350;
+function totalPayFromAllJobs(googleHoursWorked, amazonHoursWorked, facebookHoursWorked) {
+    let googleHourlyPayRateDollars = 400;
+    let amazonHourlyPayRateDollars = 380;
+    let facebookHourlyPayRateDollars = 350;
     return ((googleHourlyPayRateDollars * googleHoursWorked) + (amazonHourlyPayRateDollars * amazonHoursWorked) + (facebookHourlyPayRateDollars * facebookHoursWorked));
 }
+
 // var googleHourlyPayRateDollars = 400;
 // var amazonHourlyPayRateDollars = 380;
 // var facebookHourlyPayRateDollars = 350;
@@ -132,9 +134,10 @@ function totalPayFromAllJobs (googleHoursWorked, amazonHoursWorked, facebookHour
 //not full and the class schedule does not conflict with her
 //current schedule.
 
-function canEnrollForClass(isClassFull, isScheduleConflict){
+function canEnrollForClass(isClassFull, isScheduleConflict) {
     return !isClassFull && !isScheduleConflict;
 }
+
 // var isClassFull;
 // var isScheduleConflict;
 // console.log(isClassFull && isScheduleConflict);
@@ -150,12 +153,12 @@ function canEnrollForClass(isClassFull, isScheduleConflict){
 // function doesProductOfferApply(hasThreeOrMoreItems, isOfferExpired, isPremiumMember){
 //     return (hasThreeOrMoreItems || isPremiumMember) && !isOfferExpired;
 // }
-var hasThreeOrMore; //set to true or false
-var isOfferExpired; //set to true or false
-var isPremiumMember; //set to true or false
+let hasThreeOrMore; //set to true or false
+let isOfferExpired; //set to true or false
+let isPremiumMember; //set to true or false
 console.log((hasThreeOrMore || isPremiumMember) && !isOfferExpired);
 //or print from a value stored in variable
-var canGetOffer = (hasThreeOrMore || isPremiumMember) && !isOfferExpired;
+let canGetOffer = (hasThreeOrMore || isPremiumMember) && !isOfferExpired;
 console.log(canGetOffer);
 
 /*
@@ -165,8 +168,8 @@ console.log(canGetOffer);
 //var username = 'codeup';
 //var password = 'notastrongpassword'
 
-var username = 'codeup';
-var password = 'notastrongpassword'
+let username = 'codeup';
+let password = 'notastrongpassword'
 
 //Create a variable that holds a boolean value for each of the
 //following conditions:
@@ -177,13 +180,13 @@ var password = 'notastrongpassword'
 //-- neither the username or password can start or end with
 //whitespace
 
-var passwordMinLength = 5;
-var passwordHasMinLength = password.length >= passwordMinLength;
-var noUsernameInPassword = password.indexOf(username) === -1;
-var usernameMaxLength = 20;
-var usernameUnderMaxLength = username.length <= usernameMaxLength;
+let passwordMinLength = 5;
+let passwordHasMinLength = password.length >= passwordMinLength;
+let noUsernameInPassword = password.indexOf(username) === -1;
+let usernameMaxLength = 20;
+let usernameUnderMaxLength = username.length <= usernameMaxLength;
 
-var passwordIsTrim = password.trim() === password;
-var usernameIsTrim = username.trim() === username;
-var passwordAndUsernameIsTrim = passwordIsTrim && usernameIsTrim;
-var passwordAndUsernameIsValid = passwordHasMinLength && noUsernameInPassword && usernameUnderMaxLength && passwordAndUsernameIsTrim;
+let passwordIsTrim = password.trim() === password;
+let usernameIsTrim = username.trim() === username;
+let passwordAndUsernameIsTrim = passwordIsTrim && usernameIsTrim;
+let passwordAndUsernameIsValid = passwordHasMinLength && noUsernameInPassword && usernameUnderMaxLength && passwordAndUsernameIsTrim;

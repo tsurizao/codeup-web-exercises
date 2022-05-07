@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /* ########################################################################## */
@@ -45,8 +45,8 @@
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-    var randomColor = colors[Math.floor(Math.random() * colors.length)];
+    let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
     /**
      * TODO:
      * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -86,8 +86,8 @@
      * function to show it to the user.
      */
 
-    var userColorInput = prompt("Pick a color, would you kindly?");
-    var responseMessage = analyzeColor(userColorInput);
+    let userColorInput = prompt("Pick a color, would you kindly?");
+    let responseMessage = analyzeColor(userColorInput);
     alert(responseMessage);
 // analyzeColor(prompt("Pick a color, would you kindly?"));
 
@@ -142,9 +142,9 @@
      */
 
         // Generate a random number between 0 and 6
-    var luckyNumber = Math.floor(Math.random() * 6);
-    var customerTotalBill = (prompt("You bought stuff at Walmart, how much was your total bill?"));
-    var discountedPrice = calculateTotal(luckyNumber, customerTotalBill);
+    let luckyNumber = Math.floor(Math.random() * 6);
+    let customerTotalBill = (prompt("You bought stuff at Walmart, how much was your total bill?"));
+    let discountedPrice = calculateTotal(luckyNumber, customerTotalBill);
     alert("Your lucky number was " + luckyNumber + ". Your total bill was $" + customerTotalBill + ".  Your new bill amount, after discount, is $" + discountedPrice + "!");
     // alert("Your lucky number is " + luckyNumber);
     // alert("Your total bill was $" + customerTotalBill);
@@ -169,22 +169,25 @@
      * HINT: The way we prompt for a value could be improved
      */
 
-    function isEvenNumber(number){
-        if(number === 0){
+    function isEvenNumber(number) {
+        if (number === 0) {
             alert(number + " isn't even or odd.")
         } else (number % 2 === 0) ? alert(number + " is an even number.") : alert(number + " is an odd number.");
     }
-    function isPositiveNumber(number){
-        if(number === 0){
+
+    function isPositiveNumber(number) {
+        if (number === 0) {
             alert(number + " isn't positive or negative")
         } else (number > 0) ? alert(number + " is a positive number.") : alert(number + " is a negative number");
     }
-    function numberPlusOneHundred(number){
+
+    function numberPlusOneHundred(number) {
         alert((number + 100) + " is the value of " + number + " plus 100.")
     }
-    var isConfirmed = confirm("Would you like to enter a number?");
+
+    let isConfirmed = confirm("Would you like to enter a number?");
     if (isConfirmed) {
-        var capturedNumber = parseFloat(prompt("Enter a digit. (Please use number keys)"));
+        let capturedNumber = parseFloat(prompt("Enter a digit. (Please use number keys)"));
         isEvenNumber(capturedNumber);
         isPositiveNumber(capturedNumber);
         numberPlusOneHundred(capturedNumber);

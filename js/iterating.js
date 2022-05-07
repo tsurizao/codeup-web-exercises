@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     /**
@@ -6,7 +6,7 @@
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
-    var names = ['Godfrey', 'Rennala', 'Radagon', 'Marika'];
+    let names = ['Godfrey', 'Rennala', 'Radagon', 'Marika'];
 
     /**
      * TODO:
@@ -30,7 +30,7 @@
      * array.
      */
 
-    for(var i = 0;i < names.length;i++){
+    for (let i = 0; i < names.length; i++) {
         console.log(names[i]);
     }
 
@@ -38,7 +38,7 @@
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    names.forEach(function(name){
+    names.forEach(function (name) {
         console.log(name);
     })
 
@@ -55,16 +55,16 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    function first(array){
+    function first(array) {
         return array[0];
     }
 
-    function second(array){
+    function second(array) {
         return array[1];
     }
 
     function last(array) {
-        return array[array.length-1]
+        return array[array.length - 1]
     }
 
 })();

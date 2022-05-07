@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -22,7 +22,7 @@
      * console.log 'helloMessage' to check your work
      */
 
-    var helloMessage = sayHello("Chase");
+    let helloMessage = sayHello("Chase");
     console.log(helloMessage);
 
     /**
@@ -32,13 +32,13 @@
      * console.
      */
 
-    var myName = "Chase";
+    let myName = "Chase";
     sayHello(myName);
     console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-    var random = Math.floor((Math.random() * 3) + 1);
+    let random = Math.floor((Math.random() * 3) + 1);
 
     /**
      * TODO:
@@ -89,8 +89,8 @@
      * then display the dollar amount they should tip
      */
     alert("You ate at a very fancy restaurant.");
-    var totalOfBill = parseFloat(prompt("How much was the bill?"));
-    var percentageToTip = parseFloat(prompt("What percentage would you like to tip?"));
+    let totalOfBill = parseFloat(prompt("How much was the bill?"));
+    let percentageToTip = parseFloat(prompt("What percentage would you like to tip?"));
 // var percentageToTip = parseFloat(prompt("What percentage would you like to tip?")) / 100;
     alert("Your tip amount should be " + calculateTip(percentageToTip, totalOfBill));
 
