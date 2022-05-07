@@ -11,7 +11,7 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-    var person = {
+    let person = {
         firstName: 'Chase',
         lastName: 'Martinez',
     }
@@ -46,7 +46,7 @@
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
+    let shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
@@ -76,7 +76,7 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-    var books = [
+    let books = [
         {
             title: 'Going After Cacciato',
             author: {
@@ -154,7 +154,7 @@
      */
 
     function createBook(title, authorFirstName, authorLastName) {
-        var newBook = {
+        let newBook = {
             title: title,
             author: {
                 firstName: authorFirstName,
