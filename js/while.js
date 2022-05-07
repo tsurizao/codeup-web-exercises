@@ -1,4 +1,4 @@
-(function(){
+(function () {
     /*
     Exercise 1:
     Create a file named while.js in the js directory.
@@ -26,8 +26,8 @@
     32768
     65536
      */
-    var myVar = 2;
-    while(myVar < 65536){
+    let myVar = 2;
+    while (myVar < 65536) {
         console.log(myVar);
         myVar *= 2;
     }
@@ -45,14 +45,14 @@
     cones sold to each person. The below code shows how to get
     the random numbers for this exercise.
      */
-    var allCones = Math.floor(Math.random() * 50) + 50;
+    let allCones = Math.floor(Math.random() * 50) + 50;
     do {
-        var randomConesSold = Math.floor(Math.random()*5 + 1);
-        if (allCones - randomConesSold >= 0){
+        let randomConesSold = Math.floor(Math.random() * 5 + 1);
+        if (allCones - randomConesSold >= 0) {
             allCones -= randomConesSold;
             console.log("Sold " + randomConesSold + "!  I have " + allCones + " left!");
         } else {
             console.log("I cannot sell you " + randomConesSold + ", I only have " + allCones + " left.");
         }
-    }while(allCones > 0);
+    } while (allCones > 0);
 }());
