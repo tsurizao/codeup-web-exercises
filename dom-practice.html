@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit">
+    <title>DOM Practice</title>
+</head>
+<body id="background">
+<div>
+    <label for="color">Enter a color!</label>
+    <input type="text" id="color">
+    <input type="button" id="changeColor" value="Submit Color">
+</div>
+<script>
+    let backgroundColor = document.getElementById("background");
+    let colorEntered = document.getElementById("color");
+    let submitButton = document.getElementById("changeColor");
+    submitButton.addEventListener("click", function (){
+        backgroundColor.style.background = colorEntered.value;
+    });
+</script>
+</body>
+</html>
