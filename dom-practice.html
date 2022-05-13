@@ -27,7 +27,6 @@
     doubleClick.addEventListener("dblclick", function () {
         console.log(event.target.style.fontSize);
         let currentFontSize = parseFloat(doubleClick.style.fontSize);
-        let fontValue = currentFontSize.value;
         return doubleClick.style.fontSize = currentFontSize * 2 + "px";
     })
 </script>
