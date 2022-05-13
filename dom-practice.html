@@ -10,14 +10,26 @@
     <label for="color">Enter a color!</label>
     <input type="text" id="color">
     <input type="button" id="changeColor" value="Submit Color">
+    <p id="doubleSize" style="font-size: 10px">
+        Hello world! Double click me!  Just DO IT!
+    </p>
 </div>
 <script>
     let backgroundColor = document.getElementById("background");
     let colorEntered = document.getElementById("color");
     let submitButton = document.getElementById("changeColor");
-    submitButton.addEventListener("click", function (){
+    let doubleClick = document.getElementById("doubleSize");
+
+    submitButton.addEventListener("click", function () {
         backgroundColor.style.background = colorEntered.value;
     });
+
+    doubleClick.addEventListener("dblclick", function () {
+        console.log(event.target.style.fontSize);
+        let currentFontSize = parseFloat(doubleClick.style.fontSize);
+        let fontValue = currentFontSize.value;
+        return doubleClick.style.fontSize = currentFontSize * 2 + "px";
+    })
 </script>
 </body>
 </html>
