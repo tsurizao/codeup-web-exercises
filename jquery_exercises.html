@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>JQuery Exercise</title>
 </head>
-<body>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
-</script>
+<body class="body-class" id="body-id">
+<div>
+    <div>
+        <h1 class="fancy-header" id="header-id">Lorem Ipsum Dolor</h1>
+    </div>
+    <div>
+        <p class="paragraph-text" id="paragraph-id">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corporis debitis dolorum fugit? Asperiores atque, autem corporis nemo nobis porro?
+        </p>
+    </div>
+    <div>
+        <ul class="list" id="unordered-list-id">
+            <li class="list-item">This</li>
+            <li class="list-item">Is</li>
+            <li class="list-item">A</li>
+            <li class="list-item">Test</li>
+        </ul>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function(){
-        alert("Ready");
+    $(document).ready(function () {
+        // alert("Ready");
+        alert($("#header-id").html());
+        alert($(".paragraph-text").html());
     }());
 </script>
 </body>
