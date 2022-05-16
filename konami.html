@@ -36,10 +36,16 @@
     $(document).on("keyup", function (event) {
         userInput += event.key;
         if (userInput.includes("ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter")) {
-            alert("You have added 30 lives!");
             $("img").attr("src", "/img/handshake-predator.gif");
             let levelComplete = new Audio("/audio/contra-area-clear.mp3");
             levelComplete.play();
+
+            // Alert after a 1 second delay
+            function livesAlert(){
+                alert("You have added 30 lives!");
+            }
+            setTimeout(livesAlert, 1000);
+
         }
     });
 </script>
