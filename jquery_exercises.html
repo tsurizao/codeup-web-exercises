@@ -47,10 +47,10 @@
             toggle = !toggle;
         });
 
-        $(".list-item").on("mouseenter", function () {
-            $(this).css("color", "red");
-        });
-        $(".list-item").on("mouseleave", function () {
+        $("li").on("mouseenter", function () {
+                $(this).css("color", "red")
+            }
+        ).on("mouseleave", function () {
             $(this).css("color", "black");
         });
     });
