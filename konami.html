@@ -6,21 +6,30 @@
 </head>
 <body style="background-color: black">
 <img src="/img/contra.png" alt="contra nintendo entertainment system video game title screen" style="width: 100%">
+<div id="setAudio"></div>
 <h1>Konami Code</h1>
-</main>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script>
     "use strict";
 
-
-
+    let audioFlag = true;
+    $("body").on("click", function(){
+        if(audioFlag) {
+            let contraTitle = new Audio("/audio/contra-title.mp3");
+            contraTitle.play();
+        }
+        audioFlag = false;
+    });
     // function checks for the Konami Code within the saved input
     let userInput = "";
     $(document).on("keyup", function (event) {
         userInput += event.key;
         if (userInput.includes("ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter")) {
-            alert("nice")
+            alert("You have added 30 lives!")
+            $("img").attr("src", "/img/arnold-predator-sob.gif");
+            let levelComplete = new Audio("/audio/contra-area-clear.mp3");
+            levelComplete.play();
         }
     });
 </script>
