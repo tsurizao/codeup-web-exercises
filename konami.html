@@ -13,6 +13,7 @@
 <script>
     "use strict";
 
+    // Plays the intro audio file when anywhere on page body is clicked
     let audioFlag = true;
     $("body").on("click", function(){
         if(audioFlag) {
@@ -21,12 +22,13 @@
         }
         audioFlag = false;
     });
-    // function checks for the Konami Code within the saved input
+
+    // function checks for the Konami Code within the variable userInput
     let userInput = "";
     $(document).on("keyup", function (event) {
         userInput += event.key;
         if (userInput.includes("ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter")) {
-            alert("You have added 30 lives!")
+            alert("You have added 30 lives!");
             $("img").attr("src", "/img/arnold-predator-sob.gif");
             let levelComplete = new Audio("/audio/contra-area-clear.mp3");
             levelComplete.play();
