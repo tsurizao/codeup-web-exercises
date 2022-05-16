@@ -47,11 +47,12 @@
             toggle = !toggle;
         });
 
-        $("ul > li").on("mouseenter", function () {
-
+        $(".list-item").on("mouseenter", function () {
+            $(this).css("color", "red");
         });
-        $("ul > li").on("mouseleave", function () {
-        })
+        $(".list-item").on("mouseleave", function () {
+            $(this).css("color", "black");
+        });
     });
 </script>
 </body>
