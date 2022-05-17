@@ -12,45 +12,55 @@
         crossorigin="anonymous"></script>
 <script>
     "use strict";
-    let contraTitle = new Audio("/audio/contra-title.mp3");
-    let levelComplete = new Audio("/audio/contra-area-clear.mp3");
-    let sob = new Audio("/audio/you-son-of-a-bitch.mp3");
-    let goodWork = new Audio("/audio/good-work.mp3");
-
-    let tryAgain = function(){
-        let again = confirm("Would you like to try again?");
-        if (again) {
-            window.location.reload();
-        } else {
-            window.location.assign("https://www.youtube.com/watch?v=N9-d6H14DKc");
-        }
-    };
-
     alert("Once you click the page body, you will have 15 seconds to input the Konami Code.")
 
 
     // Image slides into place and audio plays after 2.5 seconds
     let flag = true;
     $("body").on("click", function () {
+        // All variables and callbacks here
+        let contraTitle = new Audio("/audio/contra-title.mp3");
+        let levelComplete = new Audio("/audio/contra-area-clear.mp3");
+        let sob = new Audio("/audio/you-son-of-a-bitch.mp3");
+        let goodWork = new Audio("/audio/good-work.mp3");
+
+        // Asks the user if they would like to try again
+        let tryAgain = function () {
+            let again = confirm("Would you like to play again?");
+            if (again) {
+                window.location.reload();
+            } else {
+                window.location.assign("https://www.youtube.com/watch?v=N9-d6H14DKc");
+            }
+        };
+
+        // Timer allows 15 (17) seconds to input correct code
+        let timer = function aTimer() {
+            setTimeout(function () {
+                let hadEnough = new Audio("/audio/had-enough.mp3");
+                hadEnough.play();
+                setTimeout(function () {
+                    tryAgain();
+                }, 2000)
+            }, 15000);
+        }
+
+        // Beginning image slide sequence
         if (flag) {
             $("img").animate({
                 marginLeft: "0px"
             }, 2500);
+
             function playTitleSound() {
                 contraTitle.play();
             }
+
             setTimeout(playTitleSound, 2500);
         }
 
         // Timeout function adds a timer to complete the code
         flag = false;
-        let timer = setTimeout(function () {
-            let hadEnough = new Audio("/audio/had-enough.mp3");
-            hadEnough.play();
-            setTimeout(function () {
-                tryAgain();
-            }, 2000)
-        }, 15000)
+        timer();
 
         // Checks for the Konami Code within the variable userInput
         let userInput = "";
@@ -68,6 +78,7 @@
                     alert("You have added 30 lives!");
                     tryAgain();
                 }
+
                 setTimeout(livesAlert, 2000);
 
             }
