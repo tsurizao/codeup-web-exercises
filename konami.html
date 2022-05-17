@@ -11,10 +11,9 @@
         crossorigin="anonymous"></script>
 <script>
     "use strict";
+
     alert("Once you click the page body, you will have 15 seconds to input the Konami Code.")
 
-
-    // Image slides into place and audio plays after 2.5 seconds
     let flag = true;
     $("body").on("click", function () {
         // All variables and callbacks here
@@ -23,7 +22,7 @@
         let sob = new Audio("/audio/you-son-of-a-bitch.mp3");
         let goodWork = new Audio("/audio/good-work.mp3");
 
-        // Asks the user if they would like to try again
+        // Asks the user if they would like to try again after 15 seconds
         let tryAgain = function () {
             let again = confirm("Would you like to play again?");
             if (again) {
@@ -33,7 +32,7 @@
             }
         };
 
-        // Timer allows 15 (17) seconds to input correct code
+        // Timer allows 15 (17) seconds to input correct code after page activation
         let timer = function aTimer() {
             setTimeout(function () {
                 let hadEnough = new Audio("/audio/had-enough.mp3");
@@ -45,6 +44,7 @@
         }
 
         // Beginning image slide sequence
+        // Image slides into place and audio plays after 2.5 seconds
         if (flag) {
             $("img").animate({
                 marginLeft: "0px"
@@ -59,7 +59,7 @@
         flag = false;
         timer();
 
-        // Checks for the Konami Code within the variable userInput
+        // Checks for the Konami Code within the variable of userInput
         let userInput = "";
         $(document).on("keyup", function (e) {
             $("#typed-key").html(e.key);
@@ -71,7 +71,7 @@
                 // goodWork.play();
                 clearTimeout(timer);
 
-                // Alert after a 1 second delay
+                // Upon correct code this alerts after a two second delay
                 function livesAlert() {
                     alert("You have added 30 lives!");
                     tryAgain();
