@@ -14,13 +14,15 @@
 
     alert("Once you click the page body, you will have 15 seconds to input the Konami Code.")
 
+    // Prevents audio/image to run after initialization.
+    // Will be set to false once page body is clicked.
     let flag = true;
     $("body").on("click", function () {
         // All variables and callbacks here
         let contraTitle = new Audio("/audio/contra-title.mp3");
         let levelComplete = new Audio("/audio/contra-area-clear.mp3");
         let sob = new Audio("/audio/you-son-of-a-bitch.mp3");
-        let goodWork = new Audio("/audio/good-work.mp3");
+        // let goodWork = new Audio("/audio/good-work.mp3");
 
         // Asks the user if they would like to try again after 15 seconds
         let tryAgain = function () {
@@ -54,8 +56,6 @@
             }
             setTimeout(playTitleSound, 2500);
         }
-
-        // Timeout function adds a timer to complete the code
         flag = false;
         timer();
 
