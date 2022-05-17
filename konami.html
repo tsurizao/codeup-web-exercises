@@ -12,41 +12,66 @@
         crossorigin="anonymous"></script>
 <script>
     "use strict";
+    let contraTitle = new Audio("/audio/contra-title.mp3");
+    let levelComplete = new Audio("/audio/contra-area-clear.mp3");
+    let sob = new Audio("/audio/you-son-of-a-bitch.mp3");
+    let goodWork = new Audio("/audio/good-work.mp3");
 
-    alert("Click anywhere on the page body to begin.")
+    let tryAgain = function(){
+        let again = confirm("Would you like to try again?");
+        if (again) {
+            window.location.reload();
+        } else {
+            window.location.assign("https://www.youtube.com/watch?v=N9-d6H14DKc");
+        }
+    };
+
+    alert("Once you click the page body, you will have 15 seconds to input the Konami Code.")
+
 
     // Image slides into place and audio plays after 2.5 seconds
-    let audioFlag = true;
+    let flag = true;
     $("body").on("click", function () {
-        if (audioFlag) {
+        if (flag) {
             $("img").animate({
                 marginLeft: "0px"
             }, 2500);
-            let contraTitle = new Audio("/audio/contra-title.mp3");
-            function playTitleSound(){
+            function playTitleSound() {
                 contraTitle.play();
             }
             setTimeout(playTitleSound, 2500);
         }
-        audioFlag = false;
-    });
 
-    // function checks for the Konami Code within the variable userInput
-    let userInput = "";
-    $(document).on("keyup", function (event) {
-        userInput += event.key;
-        if (userInput.includes("ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter")) {
-            $("img").attr("src", "/img/handshake-predator.gif");
-            let levelComplete = new Audio("/audio/contra-area-clear.mp3");
-            levelComplete.play();
+        // Timeout function adds a timer to complete the code
+        flag = false;
+        let timer = setTimeout(function () {
+            let hadEnough = new Audio("/audio/had-enough.mp3");
+            hadEnough.play();
+            setTimeout(function () {
+                tryAgain();
+            }, 2000)
+        }, 15000)
 
-            // Alert after a 1 second delay
-            function livesAlert(){
-                alert("You have added 30 lives!");
+        // Checks for the Konami Code within the variable userInput
+        let userInput = "";
+        $(document).on("keyup", function (event) {
+            userInput += event.key;
+            if (userInput.includes("ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightbaEnter")) {
+                $("img").attr("src", "/img/handshake-predator.gif");
+                levelComplete.play();
+                sob.play();
+                // goodWork.play();
+                clearTimeout(timer);
+
+                // Alert after a 1 second delay
+                function livesAlert() {
+                    alert("You have added 30 lives!");
+                    tryAgain();
+                }
+                setTimeout(livesAlert, 2000);
+
             }
-            setTimeout(livesAlert, 1000);
-
-        }
+        });
     });
 </script>
 </body>
