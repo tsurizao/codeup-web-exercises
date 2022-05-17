@@ -167,14 +167,6 @@
             $("dt").css("background-color", "transparent");
             $("dd").css("background-color", "transparent");
             $(this).css("background-color", "#3EB489");
-
-            // When not invisible, highlights the answer field if the
-            // question field is clicked.
-            if ($(this).next().attr("class").includes("invisible")) {
-                $(this).next().css("background-color", "transparent");
-            } else {
-                $(this).next().css("background-color", "#3EB489");
-            }
         });
     });
 </script>
