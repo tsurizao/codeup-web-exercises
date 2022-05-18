@@ -212,6 +212,7 @@
     <br>
     <hr>
     <h1 style="text-align: center">William Blake's Painting Shuffle</h1>
+    <h5 style="text-align: center">Click on a painting to shuffle it.</h5>
     <div class="container">
         <div>
             <img src="/img/red-dragon.jpeg" id="left" class="painting"></img>
@@ -279,7 +280,7 @@
             $("#left").attr("src", centerPainting);
         });
 
-        // Randomly produces a 0 or 1 then based on that variable
+        // Randomly produces a 0 or 1 then based on that value
         // determines the behavior of the center painting
         $("div").children().first().next().on("click", function () {
             let randomNumber = Math.floor(Math.random() * 2);
@@ -304,7 +305,6 @@
             $("#right").attr("src", centerPainting);
         });
     });
-
 </script>
 </body>
 </html>
