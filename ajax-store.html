@@ -2,11 +2,33 @@
 <html>
 <head>
     <title>Online Store</title>
+    <style>
+        body {
+            background-color: #0fb784;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            background-color: lightgreen;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        th {
+            border: 1px solid #000000;
+            justify-content: space-between;
+        }
+
+    </style>
 </head>
 <body>
-
 <h1>My Tool Store</h1>
-
 <table id="products">
     <thead>
     <tr>
@@ -18,13 +40,13 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 <script>
     (function () {
         "use strict";
         // TODO: Create an AJAX GET request for the file under data/inventory.json
+
 
         $.ajax("/data/inventory.json").done(function (data) {
 
@@ -33,7 +55,7 @@
             //             its contents and fields
             //       HINT: You will want to target #insertProducts for your new HTML elements
 
-            data.forEach(function(item){
+            data.forEach(function (item) {
                 $("#insertProducts").append(
                     "<tr>" +
                     "<td>" + item.title + "</td>" +
@@ -42,6 +64,12 @@
                     "<td>" + item.categories + "</td>" +
                     "</tr>"
                 );
+            });
+            $("body").append(
+                "<button id='refresh-button'>Refresh List</button>"
+            );
+            $("#refresh-button").on("click", function () {
+                window.location.reload();
             });
         });
     })();

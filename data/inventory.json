@@ -35,11 +35,19 @@
     "price": 10
   },
   {
-    "title": "Sockets",
+    "title": "Sockets(Added)",
     "quantity": 1,
     "categories": [
       "tool"
     ],
     "price": 50
+  },
+  {
+    "title": "Tape Measure(Added)",
+    "quantity": 1,
+    "categories": [
+      "tool"
+    ],
+    "price": 15
   }
 ]
