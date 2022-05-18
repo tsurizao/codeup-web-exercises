@@ -271,7 +271,6 @@
         $("div").children().first().on("click", function () {
             let centerPainting = $("#center").attr("src");
             let leftPainting = $("#left").attr("src");
-            console.log(centerPainting);
             $("#center").attr("src", leftPainting);
             $("#left").attr("src", centerPainting);
         });
@@ -296,7 +295,6 @@
         $("div").children().last().on("click", function () {
             let centerPainting = $("#center").attr("src");
             let rightPainting = $("#right").attr("src");
-            console.log(centerPainting);
             $("#center").attr("src", rightPainting);
             $("#right").attr("src", centerPainting);
         });
