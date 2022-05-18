@@ -263,7 +263,7 @@
 
         // When li is clicked, highlights the first li within that ul
         $("li").on("click", function () {
-            $(this).parent().children().first().css("color", "blue");
+            $("li:first-child").css("color", "blue");
         });
 
         // Painting Shuffle
