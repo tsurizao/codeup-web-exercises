@@ -250,13 +250,9 @@
         $("#toggle-button").on("click", function () {
             highlightToggle = !highlightToggle;
             if (highlightToggle) {
-                $("ul").each(function () {
-                    $(this).children().last().css("background-color", "#f6df80")
-                });
+                $("li:last-child").css("background-color", "#f6df80");
             } else {
-                $("ul").each(function () {
-                    $(this).children().last().css("background-color", "transparent")
-                })
+                $("li:last-child").css("background-color", "transparent");
             }
         });
 
