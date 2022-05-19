@@ -40,7 +40,7 @@
 
 <!-- Custom JS -->
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoidHN1cml6YW8iLCJhIjoiY2wzZDV6eGY3MDBveDNjbDA0M3liY2VtYSJ9._fZTJ-8l5r3RnlJPHNqp4w';
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -51,37 +51,32 @@
     let restaurants = [
         {
             name: "Osaka Japanese Steak and Sushi",
-            coords: [29.55472031340169, -98.67041654512165],
+            lng: 29.55472031340169,
+            lat: -98.67041654512165,
             address: "11851 Bandera Rd #101, Helotes, TX 78023",
         },
         {
             name: "BJ's Restaurant & Brewhouse",
-            coords: [29.49015365962932, -98.70795563163034],
+            lng: 29.49015365962932,
+            lat: -98.70795563163034,
             address: "5447 W Loop 1604 N, San Antonio, TX 78253",
         },
         {
             name: "Longhorn Steakhouse",
-            coords: [29.59196375845183, -98.60125190279224],
+            lng: 29.59196375845183,
+            lat: -98.60125190279224,
             address: "5803 N Loop 1604 W, San Antonio, TX 78249",
         },
     ]
 
-    // let restaurantMarker = new mapboxgl.Marker()
-    //     .setLngLat([-98.67048, 29.55468])
-    //     .addTo(map);
-    //
-    // let restaurantPopUp = new mapboxgl.Popup()
-    //     .setHTML("<p style='width: 150px; height: 12px'>Osaka Steak and Sushi</p>");
-    // restaurantMarker.setPopup(restaurantPopUp);
-
-    restaurants.forEach(function (restaurant){
-       let restaurantMarker = new mapboxgl.Marker().setLngLat(restaurant.coords).addTo(map);
-       let restaurantPopUp = new mapboxgl.Popup().setHTML("<p>" + restaurant.name + "</p>")
+    restaurants.forEach(function (restaurant) {
+        let marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.lng, restaurant.lat)
+            .addTo(map);
+        let popup = new mapboxgl.Popup()
+            .setHTML("<p style='width: 150px; height: 12px'>" + restaurants[0].name + "</p>");
+        marker.setPopup(popup);
     });
-
-    // San Antonio coordinates [-98.4946, 29.4252]
-    // Osaka Steak and Sushi coordinates [-98.6705, 29.5548];
-    // Zoom 17
 </script>
 </body>
 </html>
