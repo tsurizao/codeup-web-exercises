@@ -68,13 +68,19 @@
             address: "5803 N Loop 1604 W, San Antonio, TX 78249",
         },
     ]
+    let markerOne = new mapboxgl.Marker();
+    let markerTwo = new mapboxgl.Marker();
+    let markerThree = new mapboxgl.Marker();
+    let popupOne = new mapboxgl.Popup();
+    let popupTwo = new mapboxgl.Popup();
+    let popupThree = new mapboxgl.Popup();
+    let markers = [markerOne, markerTwo, markerThree];
+    let popups = [popupOne, popupTwo, popupThree];
+
 
     restaurants.forEach(function (restaurant) {
-        let marker = new mapboxgl.Marker()
-            .setLngLat(restaurant.lng, restaurant.lat)
-            .addTo(map);
-        let popup = new mapboxgl.Popup()
-            .setHTML("<p style='width: 150px; height: 12px'>" + restaurants[0].name + "</p>");
+        let marker = new mapboxgl.Marker().setLngLat([restaurant.lng, restaurant.lat]).addTo(map);
+        let popup = new mapboxgl.Popup().setHTML("<p>" + restaurant.name + "</p>");
         marker.setPopup(popup);
     });
 </script>
