@@ -20,11 +20,10 @@
 
     $.ajax("/data/blog.json").done(function (data) {
         data.forEach(function (item) {
-            let categoryString = item.categories.join(", ");
             $("#posts").append(
                 "<h3 class='text-info'>" + item.title + "</h3>" +
                 "<p class='text-success'>" + item.content + "</p>" +
-                 "<span class='text-muted'>" + categoryString + "</span>" +
+                 "<span class='text-muted'>" + item.categories.join(", ") + "</span>" +
                 "<br>" +
                 "<hr style='border: 3px solid lightblue'>"
             );
