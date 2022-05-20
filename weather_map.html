@@ -46,6 +46,17 @@
         zoom: 9 // starting zoom
     });
 
+    let marker = new mapboxgl.Marker()
+    .setLngLat([-98.4946, 29.4252])
+    .addTo(map);
+
+    function setMarker(){
+        marker = new mapboxgl.Marker()
+            .setLngLat([longitude, latitude])
+            .addTo(map);
+    }
+
+
     // Records the longitude and latitude of clicked area on map
     map.on("click", function (e) {
         let latitude = e.lngLat.lat;
