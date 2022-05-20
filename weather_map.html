@@ -16,11 +16,11 @@
 <body>
 <main class="container-fluid">
     <section class="d-flex justify-content-center">
-        <div class="card-color d-flex row">
+        <div id="current-conditions" class="d-flex row">
             <h5>Current Conditions</h5>
-            <h5 id="temp" class=""></h5>
+            <span id="temp" class=""></span>
             <span id="weather" class=""></span>
-            <span id="precipitation" class=""></span>
+            <span id="pressure" class=""></span>
             <span id="humidity" class=""></span>
             <span id="wind" class=""></span>
         </div>
@@ -45,6 +45,8 @@
         crossorigin="anonymous"></script>
 <!-- Custom JS -->
 <script>
+    "use strict";
+
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -54,54 +56,57 @@
     });
 
     let marker = new mapboxgl.Marker()
+        .setDraggable(true)
         .setLngLat([-98.4946, 29.4252])
         .addTo(map);
 
-    // Records the longitude and latitude of clicked area on map
-    map.on("click", function (e) {
-        let latitude = e.lngLat.lat;
-        let longitude = e.lngLat.lng;
-        if (marker) {
-            function setMarker() {
-                marker = new mapboxgl.Marker()
-                    .setLngLat([longitude, latitude])
-                    .addTo(map);
-            }
-            marker.remove();
-            setMarker()
-        } else {
-            setMarker();
-        }
+    // Drag marker to get forecast, weather conditions
+    marker.on("dragend", function () {
+        let latitude = marker.getLngLat().lat;
+        let longitude = marker.getLngLat().lng;
+        getWeather(latitude, longitude);
     });
 
-    $.get("http://api.openweathermap.org/data/2.5/onecall", {
-        APPID: OPEN_WEATHER_KEY,
-        lat: 29.423017,
-        lon: -98.48527,
-        units: "imperial"
-    }).done(function (data) {
-        $("#day").html(data);
-        console.log();
-        $("#weather").html(data.current.weather[0].description);
-        $("#temp").html("Temp: " + data.current.temp + "°F");
-        $("#precipitation").html("Precipitation: " + data.daily[0].rain + "%");
-        $("#humidity").html("Humidity: " + data.current.humidity + "%");
-        $("#wind").html("Wind: " + data.current.wind_speed + "mph");
-        console.log(data);
-        data.daily.forEach(function (day, index) {
-            console.log(day, index);
-            if (index < 5) {
-                $("#forecast").append(
-                    "<div class='card card-color'><span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
-                    "<span class=''>Description: " + day.weather[0].description + "</span>" +
-                    "<span class=''>Pressure: " + day.pressure + "</span>" +
-                    "<span class='''>Humidity: " + day.humidity + "</span>" +
-                    "<span class=''>Wind: " + day.wind_speed + "</span>" +
-                    "</div>"
-                );
-            }
+    // Click to place marker to get forecast, weather conditions
+    // map.on("click", function(){
+    //     let latitude = marker.getLngLat().lat;
+    //     let longitude = marker.getLngLat().lng;
+    //     getWeather(latitude, longitude);
+    // })
+
+    function getWeather(lat, lon) {
+        $.get("http://api.openweathermap.org/data/2.5/onecall", {
+            APPID: OPEN_WEATHER_KEY,
+            lat: marker.getLngLat().lat,
+            lon: marker.getLngLat().lng,
+            units: "imperial"
+        }).done(function (data) {
+            $("#day").html(data);
+            console.log();
+            $("#weather").html("<img></img>");
+            $("#temp").html("Temp: " + data.current.temp + "°F");
+            $("#pressure").html("Pressure: " + data.current.pressure);
+            $("#humidity").html("Humidity: " + data.current.humidity + "%");
+            $("#wind").html("Wind: " + data.current.wind_speed + "mph");
+            console.log(data);
+            $("#forecast").html("");
+            data.daily.forEach(function (day, index) {
+                console.log(day, index);
+                if (index < 5) {
+                    $("#forecast").append(
+                        "<div class='card card-color'><span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
+                        "<span class=''>Description: " + day.weather[0].description + "</span>" +
+                        "<span class=''>Pressure: " + day.pressure + "</span>" +
+                        "<span class='''>Humidity: " + day.humidity + "</span>" +
+                        "<span class=''>Wind: " + day.wind_speed + "</span>" +
+                        "</div>"
+                    );
+                }
+            });
         });
-    });
+    }
+
+    getWeather();
 </script>
 </body>
 </html>
