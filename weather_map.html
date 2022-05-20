@@ -50,17 +50,20 @@
     .setLngLat([-98.4946, 29.4252])
     .addTo(map);
 
-    function setMarker(){
-        marker = new mapboxgl.Marker()
-            .setLngLat([longitude, latitude])
-            .addTo(map);
-    }
-
-
     // Records the longitude and latitude of clicked area on map
     map.on("click", function (e) {
         let latitude = e.lngLat.lat;
-        let longitude = e.lngLat.lng;
+        let longitude = e.lngLat.lng;if(marker){
+            function setMarker(){
+                marker = new mapboxgl.Marker()
+                    .setLngLat([longitude, latitude])
+                    .addTo(map);
+            }
+            marker.remove();
+            setMarker()
+        } else {
+            setMarker();
+        }
     });
 
     $.get("http://api.openweathermap.org/data/2.5/onecall", {
