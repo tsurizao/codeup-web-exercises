@@ -14,18 +14,25 @@
     <link href="css/weather-map.css" rel="stylesheet">
 </head>
 <body>
-<div class="card">
-    <span id="day"></span>
-    <h3 id="temp"></h3>
-    <span id="weather"></span>
-    <span id="precipitation"></span>
-    <span id="humidity"></span>
-    <span id="wind"></span>
-</div>
-<div id="forecast"></div>
-<div>
-    <div id="map" class="m-auto"></div>
-</div>
+<main class="container-fluid">
+    <section class="d-flex justify-content-center">
+        <div class="card-color d-flex row">
+            <h5>Current Conditions</h5>
+            <h5 id="temp" class=""></h5>
+            <span id="weather" class=""></span>
+            <span id="precipitation" class=""></span>
+            <span id="humidity" class=""></span>
+            <span id="wind" class=""></span>
+        </div>
+    </section>
+    <section id="forecast" class="d-flex justify-content-evenly">
+    </section>
+    <section>
+        <div>
+            <div id="map" class="m-auto"></div>
+        </div>
+    </section>
+</main>
 
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -47,14 +54,15 @@
     });
 
     let marker = new mapboxgl.Marker()
-    .setLngLat([-98.4946, 29.4252])
-    .addTo(map);
+        .setLngLat([-98.4946, 29.4252])
+        .addTo(map);
 
     // Records the longitude and latitude of clicked area on map
     map.on("click", function (e) {
         let latitude = e.lngLat.lat;
-        let longitude = e.lngLat.lng;if(marker){
-            function setMarker(){
+        let longitude = e.lngLat.lng;
+        if (marker) {
+            function setMarker() {
                 marker = new mapboxgl.Marker()
                     .setLngLat([longitude, latitude])
                     .addTo(map);
@@ -75,11 +83,24 @@
         $("#day").html(data);
         console.log();
         $("#weather").html(data.current.weather[0].description);
-        $("#temp").html("Temperature: " + data.current.temp + "°F");
+        $("#temp").html("Temp: " + data.current.temp + "°F");
         $("#precipitation").html("Precipitation: " + data.daily[0].rain + "%");
         $("#humidity").html("Humidity: " + data.current.humidity + "%");
         $("#wind").html("Wind: " + data.current.wind_speed + "mph");
         console.log(data);
+        data.daily.forEach(function (day, index) {
+            console.log(day, index);
+            if (index < 5) {
+                $("#forecast").append(
+                    "<div class='card card-color'><span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
+                    "<span class=''>Description: " + day.weather[0].description + "</span>" +
+                    "<span class=''>Pressure: " + day.pressure + "</span>" +
+                    "<span class='''>Humidity: " + day.humidity + "</span>" +
+                    "<span class=''>Wind: " + day.wind_speed + "</span>" +
+                    "</div>"
+                );
+            }
+        });
     });
 </script>
 </body>
