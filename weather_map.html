@@ -22,7 +22,8 @@
     <!-- Current Conditions -->
     <section class="d-flex justify-content-center py-3">
         <div class="d-block row container-fluid">
-            <div class="my-card my-card-header d-flex justify-content-center align-content-between">Current Conditions
+            <div id="current-day" class="my-card my-card-header d-flex justify-content-center align-content-between">
+                Current Conditions as of
             </div>
             <div class="my-card-body d-flex justify-content-between">
                 <div class="d-flex row align-content-between">
@@ -50,12 +51,15 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 style="text-shadow: none;" class="d-flex justify-content-center">Drag the marker to display weather
+            <h6 class="d-flex justify-content-center">Drag the marker to display weather.
                 based on location</h6>
             <div id="map"></div>
         </div>
     </section>
     <!-- 5-Day Forecast -->
+    <div class="d-flex justify-content-center pt-3">
+        <h6>Here's your 5-Day forecast based on the current location.</h6>
+    </div>
     <section id="forecast" class="d-flex justify-content-evenly">
     </section>
 </main>
@@ -93,13 +97,6 @@
         getWeather(latitude, longitude);
     });
 
-    // Click to place marker to get forecast, weather conditions
-    // map.on("click", function(){
-    //     let latitude = marker.getLngLat().lat;
-    //     let longitude = marker.getLngLat().lng;
-    //     getWeather(latitude, longitude);
-    // })
-
     function getWeather(lat, lon) {
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_KEY,
@@ -107,14 +104,13 @@
             lon: marker.getLngLat().lng,
             units: "imperial"
         }).done(function (data) {
+            // console.log(data);
 
             // Populate current conditions
             $("#day").html(data);
-            console.log(data);
             $("#weather").html(data.current.weather[0].description);
             let iconCode = data.current.weather[0].icon;
             let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
-            console.log(iconUrl);
             $("#weather-icon").attr('src', iconUrl);
             $("#temp").html(data.current.temp.toFixed(1) + "°F");
             $("#high-low").html("Day " + data.daily[0].temp.max.toFixed(1) + "° • Night " + data.daily[0].temp.min.toFixed(1) + "°");
@@ -124,13 +120,19 @@
 
             // Populate 5-day forecast
             data.daily.forEach(function (day, index) {
-                // console.log(day, index);
+                console.log(day, index);
                 if (index < 5) {
+                    iconCode = day.weather[0].icon;
+                    iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+                    console.log(day.weather[0].icon)
                     $("#forecast").append(
-                        "<div class='card forecast-card'><span>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
-                        "<span class=''>Description: " + day.weather[0].description + "</span>" +
+                        "<div class='card forecast-card'>" +
+                        "<div class='d-flex row justify-content-center'>" +
+                        "<img src=" + iconUrl + " style='width: 75px'>" +
+                        "<span>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
                         "<span class='''>Humidity: " + day.humidity + "</span>" +
                         "<span class=''>Wind: " + day.wind_speed + "</span>" +
+                        "</div>" +
                         "</div>"
                     );
                 }
