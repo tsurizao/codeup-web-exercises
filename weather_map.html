@@ -85,27 +85,25 @@
         zoom: 9 // starting zoom
     });
 
-    // Sets default marker
+    // Sets default marker location
     let marker = new mapboxgl.Marker()
         .setDraggable(true)
         .setLngLat([-98.4946, 29.4252])
         .addTo(map);
 
-    // Drag marker to get forecast, weather conditions
+    // Drag marker to get forecast, weather conditions at dropped location
     marker.on("dragend", function () {
-        let latitude = marker.getLngLat().lat;
-        let longitude = marker.getLngLat().lng;
-        getWeather(latitude, longitude);
+        getWeather();
     });
 
-    function getWeather(lat, lon) {
+    function getWeather() {
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_KEY,
             lat: marker.getLngLat().lat,
             lon: marker.getLngLat().lng,
             units: "imperial"
         }).done(function (data) {
-            // console.log(data);
+
             // Populate current conditions
             $("#day").html(data);
             $("#weather").html(data.current.weather[0].description);
@@ -120,7 +118,6 @@
 
             // Populate 5-day forecast
             data.daily.forEach(function (day, index) {
-                console.log(day, index);
                 if (index < 5) {
                     iconCode = day.weather[0].icon;
                     iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
