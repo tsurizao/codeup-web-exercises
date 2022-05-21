@@ -1,22 +1,49 @@
 body {
-    background-color: #454546;
+    background-color: #7DBAD0;
+    font-family: Comfortaa, sans-serif;
+    text-shadow: 2px 2px #123654;
 }
 
 #map {
-    width: 60%;
+    width: 80%;
     height: 300px;
+    text-shadow: none;
 }
 
-.card-color {
+.my-card {
+    border-radius: 10px;
+}
+
+.my-card-header {
+    background-color: #124654;
+    color: white;
+    width: 100%;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.my-card-body {
+    background-color: #159ABA;
+    color: white;
+}
+
+.my-card-footer {
+
+}
+
+.forecast-card {
     background-color: #5e5e5e;
     color: white;
     width: 180px;
     margin: 10px;
+    border-radius: 5px;
 }
 
-#current-conditions {
-    background-color: #5e5e5e;
-    color: white;
-    width: 180px;
-    margin: 10px;
+#weather-icon {
+    width: 100px;
+    margin-left: 0;
+}
+
+h3 {
+    font-size: 80px;
 }
