@@ -161,6 +161,10 @@
             }).done(function(data) {
                 console.log(data.coord.lat);
                 console.log(data.coord.lon);
+                marker.setLngLat([data.coord.lon, data.coord.lat])
+                    .addTo(map);
+                map.jumpTo({center: data.coord, zoom: 9});
+                getWeather();
             });
         }
     });
