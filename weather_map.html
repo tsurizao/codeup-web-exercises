@@ -141,14 +141,28 @@
         });
     }
 
-    // Records geocode coordinates, updates weather information and re-centers map
+    // Records coordinates, updates weather information and re-centers map
     $("#location-button").on("click", function () {
-        let coords = $("#location").val().trim().split(",");
-        console.log(coords);
-        marker.setLngLat([coords[0], coords[1]])
-            .addTo(map);
-        map.jumpTo({center: coords, zoom: 9});
-        getWeather();
+        let city = $("#location").val();
+        let coords = $("#location").val().trim().split(",").reverse();
+        coords[0] = parseFloat(coords[0]);
+        coords[1] = parseFloat(coords[1]);
+        if (!isNaN(parseFloat(city))) {
+            marker.setLngLat([coords[0], coords[1]])
+                .addTo(map);
+            map.jumpTo({center: coords, zoom: 9});
+            getWeather();
+        } else {
+            console.log(city);
+            $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: OPEN_WEATHER_KEY,
+                q:     city,
+                units: "imperial"
+            }).done(function(data) {
+                console.log(data.coord.lat);
+                console.log(data.coord.lon);
+            });
+        }
     });
     getWeather();
 </script>
