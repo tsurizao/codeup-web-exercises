@@ -113,7 +113,7 @@
             $("#day").html(data);
             $("#weather").html(data.current.weather[0].description);
             let iconCode = data.current.weather[0].icon;
-            let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+            let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@4x.png"
             $("#weather-icon").attr('src', iconUrl);
             $("#temp").html(data.current.temp.toFixed(1) + "°F");
             $("#high-low").html("Day " + data.daily[0].temp.max.toFixed(1) + "° • Night " + data.daily[0].temp.min.toFixed(1) + "°");
@@ -125,8 +125,7 @@
             data.daily.forEach(function (day, index) {
                 if (index < 5) {
                     iconCode = day.weather[0].icon;
-                    iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
-                    console.log(day.weather[0].icon)
+                    iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
                     $("#forecast").append(
                         "<div class='card forecast-card'>" +
                         "<div class='d-flex row justify-content-center'>" +
@@ -142,6 +141,15 @@
         });
     }
 
+    // Records geocode coordinates, updates weather information and re-centers map
+    $("#location-button").on("click", function () {
+        let coords = $("#location").val().trim().split(",");
+        console.log(coords);
+        marker.setLngLat([coords[0], coords[1]])
+            .addTo(map);
+        map.jumpTo({center: coords, zoom: 9});
+        getWeather();
+    });
     getWeather();
 </script>
 </body>
