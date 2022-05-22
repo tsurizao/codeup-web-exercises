@@ -19,6 +19,11 @@
 </head>
 <body>
 <main class="container-fluid">
+    <div class="d-flex justify-content-center py-2">
+        <input type="text" id="location" style="font-size: 12px; width: 64%"
+               placeholder="Enter city or geographic coordinates">
+        <button type="button" id="location-button" style="width: 30%; border-radius: 5px">Update Information</button>
+    </div>
     <!-- Current Conditions -->
     <section class="d-flex justify-content-center py-3">
         <div class="d-block row container-fluid">
@@ -51,11 +56,12 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 class="d-flex justify-content-center">Drag the marker to display weather.
+            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather.
                 based on location</h6>
             <div id="map"></div>
         </div>
     </section>
+
     <!-- 5-Day Forecast -->
     <div class="d-flex justify-content-center pt-3">
         <h6>Here's your 5-Day forecast based on the current location.</h6>
@@ -63,7 +69,6 @@
     <section id="forecast" class="d-flex justify-content-evenly">
     </section>
 </main>
-
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
 <!-- Bootstrap CDN -->
