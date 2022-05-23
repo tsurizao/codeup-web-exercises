@@ -93,7 +93,7 @@
         let day = dateTime.getDate();
         let hour = appendLeadingZeroes(dateTime.getHours());
 
-        function fixHours() {
+        function fixHour() {
             if (hour > 12) {
                 hour -= 12;
                 minutes += " PM";
@@ -103,7 +103,7 @@
         }
 
         let minutes = appendLeadingZeroes(dateTime.getMinutes());
-        fixHours();
+        fixHour();
         return month + " " + day + " " + year + " " + hour + ":" + minutes;
     }
 
@@ -112,8 +112,7 @@
     // Gets the day of the week and returns it
     function formatDay(timeStamp) {
         let dateTime = new Date(timeStamp * 1000);
-        let day = daysOfTheWeek[dateTime.getDay()];
-        return day;
+        return daysOfTheWeek[dateTime.getDay()];
     }
 
     // Fixes the zeroes in formatTime()
