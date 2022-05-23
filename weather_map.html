@@ -83,6 +83,7 @@
 <script>
     "use strict";
 
+    const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
     // Returns time information
@@ -92,7 +93,7 @@
         let month = months[dateTime.getMonth()];
         let day = dateTime.getDate();
         let hour = appendLeadingZeroes(dateTime.getHours());
-
+        // Changes 24 hour format to 12 hour format, then adds an AM/PM
         function fixHour() {
             if (hour > 12) {
                 hour -= 12;
@@ -101,13 +102,10 @@
                 minutes += " AM";
             }
         }
-
         let minutes = appendLeadingZeroes(dateTime.getMinutes());
         fixHour();
         return month + " " + day + " " + year + " " + hour + ":" + minutes;
     }
-
-    const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     // Gets the day of the week and returns it
     function formatDay(timeStamp) {
@@ -123,6 +121,7 @@
         return n;
     }
 
+    // Map information
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -142,6 +141,7 @@
         getWeather();
     });
 
+    // Updates current weather and forecast based on pin location
     function getWeather() {
         $.get("http://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_KEY,
@@ -149,6 +149,7 @@
             lon: marker.getLngLat().lng,
             units: "imperial",
         }).done(function (data) {
+
             // Populate current conditions
             $("#current-day").html(", " + formatTime(appendLeadingZeroes(data.current.dt)))
             $("#weather").html(data.current.weather[0].description);
@@ -164,7 +165,6 @@
             // Populate 5-day forecast
             data.daily.forEach(function (day, index) {
                 if (index < 5) {
-                    console.log(day)
                     iconCode = day.weather[0].icon;
                     iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
                     $("#forecast").append(
