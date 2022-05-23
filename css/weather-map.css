@@ -75,8 +75,8 @@ h6 {
 .marker {
     background-image: url("/img/red-pin.png");
     background-size: cover;
-    width: 35px;
-    height: 60px;
+    width: 25px;
+    height: 48px;
     /*cursor: pointer;*/
     /*border-radius: 50%;*/
 }
