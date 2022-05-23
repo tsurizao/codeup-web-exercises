@@ -28,7 +28,7 @@
     <section class="d-flex justify-content-center py-3">
         <div class="d-block row container-fluid">
             <div id="current-day" class="my-card my-card-header d-flex justify-content-center align-content-between">
-                Current Conditions as of
+                Current Conditions for today
             </div>
             <div class="my-card-body d-flex justify-content-between">
                 <div class="d-flex row align-content-between">
@@ -56,8 +56,7 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather.
-                based on location</h6>
+            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather based on pin location.</h6>
             <div id="map"></div>
         </div>
     </section>
@@ -81,6 +80,8 @@
 <!-- Custom JS -->
 <script>
     "use strict";
+
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
@@ -110,7 +111,6 @@
         }).done(function (data) {
 
             // Populate current conditions
-            $("#day").html(data);
             $("#weather").html(data.current.weather[0].description);
             let iconCode = data.current.weather[0].icon;
             let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@4x.png"
@@ -141,31 +141,46 @@
         });
     }
 
+    // Updates conditions and forecast based off of input value
+    function updateInformation() {
+        if ($("#location").val().trim() === "") {
+        } else {
+            let city = $("#location").val();
+            let coords = $("#location").val().trim().split(",").reverse();
+            coords[0] = parseFloat(coords[0]);
+            coords[1] = parseFloat(coords[1]);
+            if (!isNaN(parseFloat(city))) {
+                marker.setLngLat([coords[0], coords[1]])
+                    .addTo(map);
+                map.jumpTo({center: coords, zoom: 9});
+                getWeather();
+            } else {
+                console.log(city);
+                $.get("http://api.openweathermap.org/data/2.5/weather", {
+                    APPID: OPEN_WEATHER_KEY,
+                    q: city,
+                    units: "imperial"
+                }).done(function (data) {
+                    console.log(data.coord.lat);
+                    console.log(data.coord.lon);
+                    marker.setLngLat([data.coord.lon, data.coord.lat])
+                        .addTo(map);
+                    map.jumpTo({center: data.coord, zoom: 9});
+                    getWeather();
+                });
+            }
+        }
+    }
+
     // Records coordinates, updates weather information and re-centers map
     $("#location-button").on("click", function () {
-        let city = $("#location").val();
-        let coords = $("#location").val().trim().split(",").reverse();
-        coords[0] = parseFloat(coords[0]);
-        coords[1] = parseFloat(coords[1]);
-        if (!isNaN(parseFloat(city))) {
-            marker.setLngLat([coords[0], coords[1]])
-                .addTo(map);
-            map.jumpTo({center: coords, zoom: 9});
-            getWeather();
-        } else {
-            console.log(city);
-            $.get("http://api.openweathermap.org/data/2.5/weather", {
-                APPID: OPEN_WEATHER_KEY,
-                q:     city,
-                units: "imperial"
-            }).done(function(data) {
-                console.log(data.coord.lat);
-                console.log(data.coord.lon);
-                marker.setLngLat([data.coord.lon, data.coord.lat])
-                    .addTo(map);
-                map.jumpTo({center: data.coord, zoom: 9});
-                getWeather();
-            });
+        updateInformation();
+        $("#location").value="";
+    });
+    $("#location").on("keyup", function (e) {
+        if (e.key === "Enter" || e.key === 13) {
+            updateInformation();
+            $("#location").value = "";
         }
     });
     getWeather();
