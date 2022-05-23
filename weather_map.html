@@ -103,6 +103,7 @@
                 minutes += " AM";
             }
         }
+
         let minutes = appendLeadingZeroes(dateTime.getMinutes());
         fixHour();
         return month + " " + day + " " + year + " " + hour + ":" + minutes;
@@ -132,7 +133,9 @@
     });
 
     // Sets default marker location
-    let marker = new mapboxgl.Marker()
+    let el = document.createElement("div");
+    el.className = "marker";
+    let marker = new mapboxgl.Marker(el)
         .setDraggable(true)
         .setLngLat([-98.4946, 29.4252])
         .addTo(map);
