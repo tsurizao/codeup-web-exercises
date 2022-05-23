@@ -18,10 +18,10 @@
     <link href="css/weather-map.css" rel="stylesheet">
 </head>
 <body>
-<main class="container-fluid">
+<main class="container-fluid" id="top">
     <div class="d-flex justify-content-center py-2">
         <input type="text" id="location" style="font-size: 12px; width: 64%"
-               placeholder="Enter city, state, country or geographic coordinates">
+               placeholder="Search by location or coordinates">
         <button type="button" id="location-button" style="width: 30%; border-radius: 5px">Update Information</button>
     </div>
     <!-- Current Conditions -->
@@ -57,7 +57,7 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather based on pin
+            <h6 class="d-flex justify-content-center">Drag pin to display location based weather
                 location.</h6>
             <div id="map"></div>
         </div>
@@ -65,10 +65,11 @@
 
     <!-- 5-Day Forecast -->
     <div class="d-flex justify-content-center pt-3">
-        <h6>Here's your 5-Day forecast based on the current location.</h6>
+        <h6>5-Day forecast based on pin location.</h6>
     </div>
     <section id="forecast" class="d-flex justify-content-evenly">
     </section>
+    <a href="#top" class="d-flex justify-content-center">Return to top of page.</a>
 </main>
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -170,7 +171,7 @@
                     $("#forecast").append(
                         "<div class='card forecast-card'>" +
                         "<div class='d-flex row justify-content-center'>" +
-                        "<h6 class='d-flex justify-content-center'>" + formatDay(appendLeadingZeroes(day.dt)) + "</h6>" +
+                        "<h5 class='d-flex justify-content-center'>" + formatDay(appendLeadingZeroes(day.dt)) + "</h5>" +
                         "<img src=" + iconUrl + " style='width: 75px'>" +
                         "<span class='d-flex justify-content-center'>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
                         "<span class='d-flex justify-content-center'>Humidity: " + day.humidity + "</span>" +
