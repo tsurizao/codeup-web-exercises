@@ -135,7 +135,9 @@
     // Sets default marker location
     let el = document.createElement("div");
     el.className = "marker";
-    let marker = new mapboxgl.Marker(el)
+    let marker = new mapboxgl.Marker(el, {
+        anchor: "bottom",
+    })
         .setDraggable(true)
         .setLngLat([-98.4946, 29.4252])
         .addTo(map);
