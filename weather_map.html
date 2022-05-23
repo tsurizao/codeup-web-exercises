@@ -192,12 +192,12 @@
             coords[0] = parseFloat(coords[0]);
             coords[1] = parseFloat(coords[1]);
             if (!isNaN(parseFloat(city))) {
+                let coords = $("#location").val().trim().split(",").reverse();
                 marker.setLngLat([coords[0], coords[1]])
                     .addTo(map);
                 map.jumpTo({center: coords, zoom: 9});
                 getWeather();
             } else {
-                console.log(city);
                 $.get("http://api.openweathermap.org/data/2.5/weather", {
                     APPID: OPEN_WEATHER_KEY,
                     q: city,
