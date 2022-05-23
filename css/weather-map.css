@@ -67,6 +67,10 @@ h6 {
     text-shadow: none;
 }
 
+#top-link {
+    visibility: hidden;
+}
+
 @media (max-width: 700px) {
     body {
         box-sizing: border-box;
@@ -96,5 +100,8 @@ h6 {
     a {
         font-family: sans-serif;
         text-shadow: 1px 1px 10px #74b1ea;
+    }
+    #top-link {
+        visibility: visible;
     }
 }
