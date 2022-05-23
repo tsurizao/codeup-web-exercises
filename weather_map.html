@@ -27,7 +27,7 @@
     <!-- Current Conditions -->
     <section class="d-flex justify-content-center py-3">
         <div class="d-block row container-fluid">
-            <div id="" class="my-card my-card-header d-flex justify-content-center align-content-between">
+            <div class="my-card-header d-flex justify-content-center align-content-between">
                 Current Conditions
                 <span id="current-day"></span>
             </div>
@@ -159,7 +159,7 @@
             $("#temp").html(data.current.temp.toFixed(1) + "°F");
             $("#high-low").html("Day " + data.daily[0].temp.max.toFixed(1) + "° • Night " + data.daily[0].temp.min.toFixed(1) + "°");
             $("#humidity").html("Humidity: " + data.current.humidity + "%");
-            $("#wind").html("Wind: " + data.current.wind_speed + "mph");
+            $("#wind").html("Wind Speed: " + data.current.wind_speed.toFixed(1) + "mph");
             $("#forecast").html("");
 
             // Populate 5-day forecast
@@ -173,8 +173,8 @@
                         "<h5 class='d-flex justify-content-center'>" + formatDay(appendLeadingZeroes(day.dt)) + "</h5>" +
                         "<img src=" + iconUrl + " style='width: 75px'>" +
                         "<span class='d-flex justify-content-center'>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
-                        "<span class='d-flex justify-content-center'>Humidity: " + day.humidity + "</span>" +
-                        "<span class='d-flex justify-content-center'>Wind: " + day.wind_speed + "</span>" +
+                        "<span class='d-flex justify-content-center'>Humidity: " + day.humidity + "%</span>" +
+                        "<span class='d-flex justify-content-center'>Wind: " + day.wind_speed.toFixed(1) + "</span>" +
                         "</div>" +
                         "</div>"
                     );
