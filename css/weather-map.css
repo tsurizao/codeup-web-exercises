@@ -1,7 +1,7 @@
 body {
     background-image: linear-gradient(#306e96, #CEE2E2);
     font-family: Comfortaa, sans-serif;
-    text-shadow: 2px 2px #1c4970;
+    text-shadow: 1px 1px 10px #1c4970;
 }
 
 #map {
