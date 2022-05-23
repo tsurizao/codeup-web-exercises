@@ -27,8 +27,9 @@
     <!-- Current Conditions -->
     <section class="d-flex justify-content-center py-3">
         <div class="d-block row container-fluid">
-            <div id="current-day" class="my-card my-card-header d-flex justify-content-center align-content-between">
+            <div id="" class="my-card my-card-header d-flex justify-content-center align-content-between">
                 Current Conditions for today
+                <span id="current-day"></span>
             </div>
             <div class="my-card-body d-flex justify-content-between">
                 <div class="d-flex row align-content-between">
@@ -56,7 +57,8 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather based on pin location.</h6>
+            <h6 class="d-flex justify-content-center">Drag and drop the marker to display weather based on pin
+                location.</h6>
             <div id="map"></div>
         </div>
     </section>
@@ -82,6 +84,45 @@
     "use strict";
 
     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+    // Returns time information
+    function formatTime(timeStamp) {
+        let dateTime = new Date(timeStamp * 1000);
+        let year = dateTime.getFullYear();
+        let month = months[dateTime.getMonth()];
+        let day = dateTime.getDate();
+        let hour = appendLeadingZeroes(dateTime.getHours());
+
+        function fixHours() {
+            if (hour > 12) {
+                hour -= 12;
+                minutes += " PM";
+            } else {
+                minutes += " AM";
+            }
+        }
+
+        let minutes = appendLeadingZeroes(dateTime.getMinutes());
+        fixHours();
+        return month + " " + day + " " + year + " " + hour + ":" + minutes;
+    }
+
+    const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    // Gets the day of the week and returns it
+    function formatDay(timeStamp) {
+        let dateTime = new Date(timeStamp * 1000);
+        let day = daysOfTheWeek[dateTime.getDay()];
+        return day;
+    }
+
+    // Fixes the zeroes in formatTime()
+    function appendLeadingZeroes(n) {
+        if (n <= 9) {
+            return "0" + n;
+        }
+        return n;
+    }
 
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
@@ -109,8 +150,10 @@
             lon: marker.getLngLat().lng,
             units: "imperial"
         }).done(function (data) {
-
+            // console.log(formatTime(appendLeadingZeroes(data.current.dt)));
+            // console.log(data);
             // Populate current conditions
+            $("#current-day").html(", " + formatTime(appendLeadingZeroes(data.current.dt)))
             $("#weather").html(data.current.weather[0].description);
             let iconCode = data.current.weather[0].icon;
             let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@4x.png"
@@ -124,15 +167,17 @@
             // Populate 5-day forecast
             data.daily.forEach(function (day, index) {
                 if (index < 5) {
+                    console.log(day)
                     iconCode = day.weather[0].icon;
                     iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
                     $("#forecast").append(
                         "<div class='card forecast-card'>" +
                         "<div class='d-flex row justify-content-center'>" +
+                        "<h6 class='d-flex justify-content-center'>" + formatDay(appendLeadingZeroes(day.dt)) + "</h6>" +
                         "<img src=" + iconUrl + " style='width: 75px'>" +
-                        "<span>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
-                        "<span class='''>Humidity: " + day.humidity + "</span>" +
-                        "<span class=''>Wind: " + day.wind_speed + "</span>" +
+                        "<span class='d-flex justify-content-center'>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
+                        "<span class='d-flex justify-content-center'>Humidity: " + day.humidity + "</span>" +
+                        "<span class='d-flex justify-content-center'>Wind: " + day.wind_speed + "</span>" +
                         "</div>" +
                         "</div>"
                     );
@@ -175,7 +220,7 @@
     // Records coordinates, updates weather information and re-centers map
     $("#location-button").on("click", function () {
         updateInformation();
-        $("#location").value="";
+        $("#location").value = "";
     });
     $("#location").on("keyup", function (e) {
         if (e.key === "Enter" || e.key === 13) {
