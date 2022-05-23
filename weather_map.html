@@ -126,7 +126,7 @@
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
         center: [-98.4946, 29.4252], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
@@ -147,10 +147,8 @@
             APPID: OPEN_WEATHER_KEY,
             lat: marker.getLngLat().lat,
             lon: marker.getLngLat().lng,
-            units: "imperial"
+            units: "imperial",
         }).done(function (data) {
-            // console.log(formatTime(appendLeadingZeroes(data.current.dt)));
-            // console.log(data);
             // Populate current conditions
             $("#current-day").html(", " + formatTime(appendLeadingZeroes(data.current.dt)))
             $("#weather").html(data.current.weather[0].description);
