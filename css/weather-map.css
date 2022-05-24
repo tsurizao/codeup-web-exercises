@@ -116,3 +116,9 @@ h6 {
         visibility: visible;
     }
 }
+@media (min-width: 900px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+}
