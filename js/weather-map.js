@@ -135,16 +135,16 @@ function getWeather() {
             if (index < 5) {
                 iconCode = day.weather[0].icon;
                 iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
-                $("#forecast").append(
-                    "<div class='card forecast-card'>" +
-                    "<div class='d-flex row justify-content-center'>" +
-                    "<h5 class='d-flex justify-content-center'>" + formatDay(appendLeadingZeroes(day.dt)) + "</h5>" +
-                    "<img src=" + iconUrl + " style='width: 75px'>" +
-                    "<span class='d-flex justify-content-center'>" + day.temp.max.toFixed(1) + "° / " + day.temp.min.toFixed(1) + "°</span>" +
-                    "<span class='d-flex justify-content-center'>Humidity: " + day.humidity + "%</span>" +
-                    "<span class='d-flex justify-content-center'>Wind: " + day.wind_speed.toFixed(1) + "</span>" +
-                    "</div>" +
-                    "</div>"
+                $("#forecast").append(`
+                    <div class='card forecast-card'>
+                    <div class='d-flex row justify-content-center'>
+                    <h5 class='d-flex justify-content-center'>${formatDay(appendLeadingZeroes(day.dt))}</h5>
+                    <img src="${iconUrl}" style='width: 75px'>
+                    <span class='d-flex justify-content-center'>${day.temp.max.toFixed(1)}° / ${day.temp.min.toFixed(1)}°</span>
+                    <span class='d-flex justify-content-center'>Humidity: ${day.humidity}%</span>
+                    <span class='d-flex justify-content-center'>Wind: ${day.wind_speed.toFixed(1)}</span>
+                    </div>
+                    </div>`
                 );
             }
         });
