@@ -134,7 +134,7 @@ function getWeather() {
         data.daily.forEach(function (day, index) {
             if (index < 5) {
                 iconCode = day.weather[0].icon;
-                iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+                iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
                 $("#forecast").append(`
                     <div class='card forecast-card'>
                     <div class='d-flex row justify-content-center'>
