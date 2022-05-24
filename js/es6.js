@@ -2,6 +2,7 @@
     /*
      * Complete the TODO items below
      */
+
     const users = [
         {
             name: 'zach',
@@ -78,9 +79,8 @@
     let list = '<ul>';
 
 // TODO: rewrite the following loop to use a for..of loop
+// TODO: rewrite the assignment below to use template strings
 // developers.forEach(function (developer) {
-//
-//     // TODO: rewrite the assignment below to use template strings
 //     list += '<li>' + developer + '</li>';
 // });
     for (let element of developers) {
