@@ -119,15 +119,15 @@ function getWeather() {
     }).done(function (data) {
 
         // Populate current conditions
-        $("#current-day").html(", " + formatTime(appendLeadingZeroes(data.current.dt)))
+        $("#current-day").html(`, ${formatTime(appendLeadingZeroes(data.current.dt))}`)
         $("#weather").html(data.current.weather[0].description);
         let iconCode = data.current.weather[0].icon;
-        let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@4x.png"
+        let iconUrl = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
         $("#weather-icon").attr('src', iconUrl);
-        $("#temp").html(data.current.temp.toFixed(1) + "°F");
-        $("#high-low").html("Day " + data.daily[0].temp.max.toFixed(1) + "° • Night " + data.daily[0].temp.min.toFixed(1) + "°");
-        $("#humidity").html("Humidity: " + data.current.humidity + "%");
-        $("#wind").html("Wind: " + data.current.wind_speed.toFixed(1) + "mph " + windCardinalDirection(data.current.wind_deg));
+        $("#temp").html(`${data.current.temp.toFixed(1)}°F`);
+        $("#high-low").html(`Day ${data.daily[0].temp.max.toFixed(1)}° • Night ${data.daily[0].temp.min.toFixed(1)}°`);
+        $("#humidity").html(`Humidity: ${data.current.humidity}%`);
+        $("#wind").html(`Wind: ${data.current.wind_speed.toFixed(1)} mph ${windCardinalDirection(data.current.wind_deg)}`);
         $("#forecast").html("");
 
         // Populate 5-day forecast
