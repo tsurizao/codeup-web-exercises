@@ -61,13 +61,8 @@
 
 // TODO: rewrite the following using arrow functions
 
-    users.forEach(user => {
-        emails.push(user.email);
-    });
-
+    users.forEach(user => emails.push(user.email));
     users.forEach(user => names.push(user.name));
-    console.log(emails);
-    console.log(names);
 
 // TODO: replace `var` with `let` in the following declaration
 //  rewrite the code below to use object destructuring assignment
