@@ -84,8 +84,8 @@
 // TODO: rewrite the following loop to use a for..of loop
 // TODO: rewrite the assignment below to use template strings
 
-    for (let element of developers) {
-        list += `<li>${element}</li>`;
+    for (let developer of developers) {
+        list += `<li>${developer}</li>`;
     }
     list += '</ul>';
 }());
