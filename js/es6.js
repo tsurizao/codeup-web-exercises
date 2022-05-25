@@ -1,4 +1,4 @@
-(function() {
+(function () {
     /*
      * Complete the TODO items below
      */
