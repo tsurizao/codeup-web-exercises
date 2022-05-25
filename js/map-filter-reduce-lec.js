@@ -233,11 +233,11 @@ console.log(under50Dollars);
 // console.log(gradeAvg);
 
 
-// let ballSports = sports.reduce((previousVal, currentVal) => {
-//     if (currentVal.includes('ball')) {
-//         previousVal += currentVal
-//     }
-//     return previousVal;
-// }, "")
+let ballSports = sports.reduce((previousVal, currentVal) => {
+    if (currentVal.includes('ball')) {
+        previousVal += currentVal
+    }
+    return previousVal;
+}, "")
 
-// console.log(ballSports);
+console.log(ballSports);

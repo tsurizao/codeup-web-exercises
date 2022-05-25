@@ -45,8 +45,25 @@
     let emails = users.map(user => user.email);
     console.log(emails);
 
-    let yearsOfExperience = users.reduce((total, user) => total += user.yearsOfExperience, 0);
-    console.log(yearsOfExperience / users.length);
+    let averageYearsOfExperience = (users.reduce((total, user) => total += user.yearsOfExperience, 0)) / users.length;
+    console.log(averageYearsOfExperience);
 
+    let longestEmail = users.reduce((previousEmail, currentEmail) => {
+        console.log(previousEmail.email);
+        if (previousEmail.email.length > currentEmail.email.length) {
+            return previousEmail;
+        } else {
+            return currentEmail;
+        }
+    });
+    console.log(longestEmail.email);
 
+    let userNames = users.reduce((names, person) => {
+        if (person.name === "justin") {
+            return names += person.name;
+        } else {
+            return names += `${person.name}, `
+        }
+    }, "");
+    console.log(userNames);
 }());
