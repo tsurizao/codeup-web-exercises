@@ -161,3 +161,83 @@ let products = [{
 }];
 
 
+// Map
+// Creates a new array populated with the results of calling a provided function on every element in the array.
+
+// OLD WAY
+// products.forEach(function (element) {
+//     $('#store').append('<li>' + element.title + '</li>')
+// })
+
+// NEW WAY W/ MAP
+let inventory = products.map((value) => `<li>${value.title}</li>`)
+
+$('#store').append(inventory);
+
+// ============= MINI-EXERCISE
+// TODO: Raise the price of each item by 2 dollars.
+
+let newProductsList = products.map((product) => product.price + 2);
+// using += 2 will change the original array
+console.log(products);
+console.log(newProductsList);
+
+// --------------------------------------------------------------------------------------------------------------
+
+// Filter
+// Creates a new array with all elements that pass the test implemented by the provided function.
+
+let sports = ['basketball', 'football', 'soccer', 'volleyball', 'cheer', 'swimming', 'diving']
+
+// OLD WAY
+// var ballSports = [];
+// sports.forEach(function(sport) {
+//     if(sport.includes('ball')) {
+//         ballSports.push(sport);
+//     }
+// })
+// console.log(ballSports);
+
+let ballSportsFilter = sports.filter((sport) => sport.includes('ball'));
+
+let longSports = sports.filter((sport) => sport.length > 8);
+console.log("Filtered: ", ballSportsFilter);
+console.log(longSports);
+
+
+// ========== MINI-EXERCISE
+// TODO: Find products that have a price of 50 or less.
+let under50Dollars = products.filter((product) => product.price < 50);
+console.log(under50Dollars);
+
+// console.log("Items under $50: ", )
+
+// --------------------------------------------------------------------------------------------------------------
+
+// Reduce
+// Executes a callback function that takes two parameters (previousValue, currentValue) on each element in the array.
+// The final result of running the reducer across all elements of the array as a single value.
+
+// Array.prototype.reduce((previousValue, currentValue, index(optional), array(optional)) => { callback function body }, initialValue(optional))
+
+// let grades = [92, 88, 76, 88, 68, 95]
+//
+// let gradeAvg = grades.reduce((previousValue, currentValue) => {
+//     console.log(previousValue);
+//     console.log(currentValue);
+//     return previousValue + currentValue
+// });
+//
+// gradeAvg = gradeAvg / grades.length;
+//
+// console.log(gradeAvg);
+
+
+// let ballSports = sports.reduce((previousVal, currentVal) => {
+//     if (currentVal.includes('ball')) {
+//         previousVal += currentVal
+//     }
+//     return previousVal;
+// }, "")
+
+// console.log(ballSports);
