@@ -39,17 +39,18 @@
     const email = 'chasemartinez22@gmail.com';
     const languages = ['css', 'html', 'java', 'javascript'];
 
-    name = 'john';
-    email = 'some@email.com';
-    languages = ['some very sophisticated language'];
+    // name = 'john';
+    // email = 'some@email.com';
+    // languages = ['a very sophisticated language'];
 
 
 // TODO: rewrite the object literal using object property shorthand
     users.push({
-        name: name,
-        email: email,
-        languages: languages
+        name,
+        email,
+        languages
     });
+    console.log(users);
 
 // TODO: replace `var` with `let` in the following variable declarations
     let emails = [];
