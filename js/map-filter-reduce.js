@@ -49,14 +49,12 @@
     console.log(averageYearsOfExperience);
 
     let longestEmail = users.reduce((previousEmail, currentEmail) => {
-        console.log(previousEmail.email);
-        if (previousEmail.email.length > currentEmail.email.length) {
-            return previousEmail;
-        } else {
-            return currentEmail;
+        if (previousEmail.length < currentEmail.email.length) {
+            previousEmail = currentEmail.email;
         }
-    });
-    console.log(longestEmail.email);
+        return previousEmail;
+    }, "");
+    console.log(longestEmail);
 
     let userNames = users.reduce((names, person) => {
         if (person.name === "justin") {
