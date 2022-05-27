@@ -23,11 +23,7 @@ const wait = seconds => {
 // Function call with an argument of 3 passed to the seconds parameter
 wait(3000).then((response) => {
     const seconds = response / 1000;
-    if (seconds === 1) {
-        console.log(`${seconds} second has passed.`)
-    } else {
-        console.log(`${seconds} seconds have passed.`)
-    }
+    seconds === 1 ? console.log(`${seconds} second has passed.`) : console.log(`${seconds} seconds have passed.`);
 });
 
 }());
