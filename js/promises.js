@@ -1,4 +1,4 @@
-// (function(){
+(function(){
 
 "use strict";
 
@@ -16,17 +16,18 @@ const wait = seconds => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(seconds);
-        }, seconds * 1000);
+        }, seconds);
     });
 }
 
 // Function call with an argument of 3 passed to the seconds parameter
-wait(3).then((response) => {
-    if (response === 1) {
-        console.log(`${response} second has passed.`)
+wait(3000).then((response) => {
+    const seconds = response / 1000;
+    if (seconds === 1) {
+        console.log(`${seconds} second has passed.`)
     } else {
-        console.log(`${response} seconds have passed.`)
+        console.log(`${seconds} seconds have passed.`)
     }
 });
 
-// }());
+}());
