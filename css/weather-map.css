@@ -120,9 +120,12 @@ h6 {
         width: 99.5%;
     }
 }
-/*@media (min-width: 900px) {*/
-/*    main {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*    }*/
-/*}*/
+
+@media (min-width: 900px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+}
