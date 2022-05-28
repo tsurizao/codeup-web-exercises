@@ -19,11 +19,14 @@
 </head>
 <body>
 <main class="container-fluid" id="top">
+<!-- Search Bar -->
+    <section>
     <div class="d-flex justify-content-center py-2">
         <input type="text" id="location" style="font-size: 12px; width: 64%"
                placeholder="Search by location or coordinates">
         <button type="button" id="location-button" style="width: 30%; border-radius: 5px">🔍 Update</button>
     </div>
+    </section>
     <!-- Current Conditions -->
     <section class="d-flex container-fluid justify-content-center py-3">
         <div class="d-block row container-fluid">
@@ -57,8 +60,10 @@
     <!-- Map -->
     <section>
         <div class="d-flex justify-content-center row">
-            <h6 class="d-flex justify-content-center">Drag pin or click map to display weather.</h6>
-            <div id="map"></div>
+            <div>
+                <h6 class="d-flex justify-content-center">Drag pin or click map to display weather.</h6>
+                <div id="map"></div>
+            </div>
         </div>
     </section>
     <!-- 5-Day Forecast -->
