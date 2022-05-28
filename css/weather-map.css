@@ -78,8 +78,6 @@ h6 {
     background-size: cover;
     width: 25px;
     height: 48px;
-    /*cursor: pointer;*/
-    /*border-radius: 50%;*/
 }
 
 @media (max-width: 768px) {
@@ -119,7 +117,7 @@ h6 {
 
     #map {
         height: 200px;
-        width: 99%;
+        width: 99.5%;
     }
 }
 /*@media (min-width: 900px) {*/
