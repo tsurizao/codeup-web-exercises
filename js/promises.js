@@ -2,7 +2,7 @@
     "use strict";
 
     import {GITHUB_TOKEN} from "./keys.js";
-    const baseURL = "https://api.github.com/users/"
+    const baseURL = "https://api.github.com/users/";
 
 // Function accepts a username as a parameter and returns the latest Github commit
     const getLatestCommit = username => {
