@@ -2,11 +2,11 @@
 
 "use strict";
 
-import {GITHUB_TOKEN} from "./keys";
+const baseURL = "https://api.github.com/users/"
 
 // Function accepts a username as a parameter and returns the latest Github commit
 const getLatestCommit = username => {
-    fetch(`https://api.github.com/users/${username}/events/public`, {headers: {"Authorization": "token " + GITHUB_TOKEN}})
+    fetch(`${baseURL}${username}/events/public`, {headers: {"Authorization": "token " + GITHUB_TOKEN}})
         .then((response) => response.json())
         .then((response) => console.log(response[0].created_at));
 }
