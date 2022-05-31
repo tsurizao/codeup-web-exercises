@@ -1,4 +1,4 @@
-// (function () {
+(function () {
     "use strict";
 
     import {GITHUB_TOKEN} from "./keys.js";
@@ -31,4 +31,4 @@
         seconds === 1 ? console.log(`${seconds} second has passed.`) : console.log(`${seconds} seconds have passed.`);
     });
 
-// }());
+}());
