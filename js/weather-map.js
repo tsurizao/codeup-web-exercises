@@ -1,6 +1,6 @@
 "use strict";
 
-import {OPEN_WEATHER_KEY} from "./keys.js";
+import {OPEN_WEATHER_KEY, MAPBOX_API_TOKEN} from "./keys.js";
 
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
