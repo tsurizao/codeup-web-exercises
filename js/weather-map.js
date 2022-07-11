@@ -5,6 +5,7 @@ import {OPEN_WEATHER_KEY, MAPBOX_API_TOKEN} from "./keys.js";
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
+// Converts wind direction from degrees to a cardinal direction
 function windCardinalDirection(degrees) {
     let cardinalDirection = '';
     if ((degrees > 348.75 && degrees <= 360) || (degrees >= 0 && degrees <= 11.25)) {
@@ -51,7 +52,7 @@ function formatTime(timeStamp) {
     let day = dateTime.getDate();
     let hour = appendLeadingZeroes(dateTime.getHours());
 
-    // Changes 24 hour format to 12 hour format, then adds an AM/PM
+    // Changes 24-hour format to 12-hour format, then adds an AM/PM
     function fixHour() {
         if (hour > 12) {
             hour -= 12;
@@ -61,6 +62,7 @@ function formatTime(timeStamp) {
         }
     }
 
+    // fixes extra zeroes in minutes
     let minutes = appendLeadingZeroes(dateTime.getMinutes());
     fixHour();
     return month + " " + day + " " + year + " " + hour + ":" + minutes;
@@ -153,7 +155,7 @@ function getWeather() {
     });
 }
 
-// Updates conditions and forecast based off of input value
+// Updates conditions and forecast based on location input
 function updateInformation() {
     if ($("#location").val().trim() === "") {
     } else {

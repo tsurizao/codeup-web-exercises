@@ -51,6 +51,7 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
+
     shoppers.forEach(function (shopper) {
         console.log("Customer Name: " + shopper.name);
         console.log("Amount: $" + shopper.amount);
