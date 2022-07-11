@@ -58,9 +58,9 @@
 
     let userNames = users.reduce((names, person) => {
         if (person.name === "justin") {
-            return names += person.name;
+            return names + person.name;
         } else {
-            return names += `${person.name}, `
+            return names + `${person.name}, `
         }
     }, "");
     console.log(userNames);
