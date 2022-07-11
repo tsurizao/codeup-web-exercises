@@ -51,9 +51,11 @@
             $("img").animate({
                 marginLeft: "0px"
             }, 2500);
+
             function playTitleSound() {
                 contraTitle.play();
             }
+
             setTimeout(playTitleSound, 2500);
         }
         flag = false;
@@ -76,6 +78,7 @@
                     alert("You have added 30 lives!");
                     tryAgain();
                 }
+
                 setTimeout(livesAlert, 2000);
             }
         });

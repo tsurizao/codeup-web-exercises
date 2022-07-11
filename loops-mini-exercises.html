@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>My Loops Mini Exercises page</title>
 </head>
 
@@ -36,8 +36,8 @@
         var isComplete = true;
         var counter = 1;
 
-        while(isComplete) {
-            if(counter === 20){
+        while (isComplete) {
+            if (counter === 20) {
                 isComplete = false;
             }
             console.log(counter + ": " + isComplete);
@@ -54,8 +54,8 @@
 
         do {
             console.log(incrementor);
-            incrementor +=2;
-        } while(incrementor <= 10);
+            incrementor += 2;
+        } while (incrementor <= 10);
 
         // 2.   Create a do-while loop that console logs the number if it's odd.
         //      A. Create a variable called number and increment it by one on each run of the loop.
@@ -63,11 +63,11 @@
         //      C. End the loop when the number reaches 50.
         var number = 0;
         do {
-            if(number % 2 !== 0) {
+            if (number % 2 !== 0) {
                 console.log(number);
             }
             number++;
-        } while(number <= 50);
+        } while (number <= 50);
 
         // TODO: For LOOPs
 
@@ -76,10 +76,10 @@
         //      B. It will print out the number if it's divisible by five evenly.
         //      C. If it's both A and B then it should print out the string "BOTH" instead of the number for that iteration.
 
-        for(var n = 1;n <= 100;n++){
-            if(n % 2 ===0 && n % 5 === 0){
+        for (var n = 1; n <= 100; n++) {
+            if (n % 2 === 0 && n % 5 === 0) {
                 console.log("BOTH");
-            } else if (n % 2 === 0 || n % 5 === 0){
+            } else if (n % 2 === 0 || n % 5 === 0) {
                 console.log(n);
             }
         }
@@ -90,7 +90,7 @@
         //     C. Log the sum of all the incrementer values (0+1+2+3….) after the loop has completed.
 
         var total = 0;
-        for(var i = 0;i < 50;i++){
+        for (var i = 0; i < 50; i++) {
             total += i;
             console.log(total);
         }
