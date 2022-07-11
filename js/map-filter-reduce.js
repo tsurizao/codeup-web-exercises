@@ -39,15 +39,19 @@
         }
     ];
 
-    let newUsers = users.filter(user => user.languages.length >= 3);
-    console.log(newUsers);
+    // creates an array of user objects that have 3 or more languages in the languages array
+    let threeOrMoreLanguages = users.filter(user => user.languages.length >= 3);
+    console.log(threeOrMoreLanguages);
 
-    let emails = users.map(user => user.email);
-    console.log(emails);
+    // creates an array of strings where each element is a user's email address
+    let userEmails = users.map(user => user.email);
+    console.log(userEmails);
 
+    // creates an average number of years of experience from all user objects
     let averageYearsOfExperience = (users.reduce((total, user) => total += user.yearsOfExperience, 0)) / users.length;
     console.log(averageYearsOfExperience);
 
+    // locates the longest email address from the array of user objects
     let longestEmail = users.reduce((previousEmail, currentEmail) => {
         if (previousEmail.length < currentEmail.email.length) {
             previousEmail = currentEmail.email;
@@ -56,12 +60,13 @@
     }, "");
     console.log(longestEmail);
 
-    let userNames = users.reduce((names, person) => {
+    // adds all users' names into one string
+    let usersNames = users.reduce((names, person) => {
         if (person.name === "justin") {
             return names + person.name;
         } else {
             return names + `${person.name}, `
         }
     }, "");
-    console.log(userNames);
+    console.log(usersNames);
 }());
